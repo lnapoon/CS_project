@@ -86,41 +86,124 @@ html, body {
   background: var(--gradient-primary);
 }
 
-/* Clear Dark Mode Contrast & Text Visibility Override */
+/* ==========================================================================
+   Comprehensive High-Contrast Dark Mode Typography & Component Suite
+   ========================================================================== */
 [data-theme="dark"] body,
-[data-theme="dark"] .text-dark,
-[data-theme="dark"] .text-body,
+[data-theme="dark"] p,
+[data-theme="dark"] span:not(.btn),
+[data-theme="dark"] div:not(.badge):not(.btn),
 [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
 [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6,
-[data-theme="dark"] .card-title, [data-theme="dark"] .modal-title,
-[data-theme="dark"] .accordion-button, [data-theme="dark"] label {
+[data-theme="dark"] .display-1, [data-theme="dark"] .display-2, [data-theme="dark"] .display-3, [data-theme="dark"] .display-4,
+[data-theme="dark"] a:not(.btn):not(.nav-link-custom):not(.mobile-nav-link),
+[data-theme="dark"] li,
+[data-theme="dark"] label,
+[data-theme="dark"] strong,
+[data-theme="dark"] b,
+[data-theme="dark"] small,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+[data-theme="dark"] .text-dark,
+[data-theme="dark"] .text-body,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .modal-title,
+[data-theme="dark"] .brand-text,
+[data-theme="dark"] .accordion-button {
   color: #f8fafc !important;
 }
 
-[data-theme="dark"] .text-muted {
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .text-white-50,
+[data-theme="dark"] .text-black-50 {
   color: #cbd5e1 !important;
 }
 
+/* Background overrides in Dark Mode */
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] .bg-light,
 [data-theme="dark"] .bg-body-tertiary,
 [data-theme="dark"] .bg-body-secondary,
-[data-theme="dark"] .bg-light {
-  background-color: #15052c !important;
+[data-theme="dark"] .bg-body {
+  background-color: #17052e !important;
+  color: #f8fafc !important;
 }
 
 [data-theme="dark"] .card,
 [data-theme="dark"] .accordion-item,
-[data-theme="dark"] .modal-content {
-  background-color: rgba(27, 6, 52, 0.93) !important;
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .mobile-drawer-inner {
+  background-color: rgba(23, 5, 45, 0.96) !important;
+  border-color: rgba(247, 138, 219, 0.22) !important;
+  color: #f8fafc !important;
+}
+
+/* Subtle Badges in Dark Mode */
+[data-theme="dark"] .bg-success-subtle {
+  background-color: rgba(16, 185, 129, 0.25) !important;
+  color: #6ee7b7 !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+}
+[data-theme="dark"] .bg-success-subtle * {
+  color: #6ee7b7 !important;
+}
+
+[data-theme="dark"] .bg-secondary-subtle {
+  background-color: rgba(168, 85, 247, 0.25) !important;
+  color: #f3e8ff !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+}
+[data-theme="dark"] .bg-secondary-subtle * {
+  color: #f3e8ff !important;
+}
+
+[data-theme="dark"] .bg-primary-subtle {
+  background-color: rgba(59, 130, 246, 0.25) !important;
+  color: #bfdbfe !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+}
+
+[data-theme="dark"] .bg-accent-subtle {
+  background-color: rgba(247, 138, 219, 0.2) !important;
+  color: #f78adb !important;
+  border: 1px solid rgba(247, 138, 219, 0.35) !important;
+}
+
+/* Tables in Dark Mode */
+[data-theme="dark"] .table,
+[data-theme="dark"] .table tr,
+[data-theme="dark"] .table td,
+[data-theme="dark"] .table th {
+  background-color: transparent !important;
+  color: #f8fafc !important;
+  border-color: rgba(247, 138, 219, 0.18) !important;
+}
+
+[data-theme="dark"] .table-success,
+[data-theme="dark"] .table-success th,
+[data-theme="dark"] .table-success td {
+  background-color: rgba(107, 4, 182, 0.5) !important;
+  color: #ffffff !important;
+}
+
+/* Form Selects & Inputs in Dark Mode */
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-control {
+  background-color: #1c0938 !important;
+  color: #f8fafc !important;
+  border-color: rgba(247, 138, 219, 0.3) !important;
+}
+
+[data-theme="dark"] option {
+  background-color: #17052e !important;
+  color: #f8fafc !important;
+}
+
+/* List Groups in Dark Mode */
+[data-theme="dark"] .list-group-item {
+  background-color: #17052e !important;
+  color: #f8fafc !important;
   border-color: rgba(247, 138, 219, 0.2) !important;
-}
-
-[data-theme="dark"] .table {
-  color: #f8fafc !important;
-}
-
-[data-theme="dark"] .table-success {
-  background-color: rgba(107, 4, 182, 0.35) !important;
-  color: #f8fafc !important;
 }
 
 /* Global Font Hierarchy */
