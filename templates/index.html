@@ -6,46 +6,34 @@
 <header class="navbar-header fixed-top">
   <div class="container-fluid container-xl navbar-container d-flex align-items-center justify-content-between px-3 px-md-4">
     <a class="navbar-brand d-flex align-items-center gap-2.5 fw-bold text-decoration-none ps-1 flex-shrink-0" href="#hero">
-      <img src="{% static 'images/logo.png' %}" alt="สาขาวิชาฯ โลโก้" width="38" height="38" class="rounded-circle shadow-sm flex-shrink-0" />
-      <span class="brand-text text-body fs-6 fs-md-5 ms-1" style="letter-spacing:-0.3px; white-space: nowrap;">วิทยาการคอมพิวเตอร์</span>
+      <img src="{% static 'images/logo.png' %}" alt="สาขาวิชาฯ โลโก้" width="40" height="40" class="rounded-circle shadow-sm flex-shrink-0" />
+      <span class="brand-text text-dark fw-bold fs-5 ms-1" style="letter-spacing:-0.5px; white-space: nowrap;">วิทยาการคอมพิวเตอร์</span>
     </a>
 
-    <!-- Desktop Nav Links -->
-    <nav class="d-none d-xl-block nav-menu">
-      <ul class="d-flex align-items-center gap-1 list-unstyled mb-0">
+    <!-- Desktop Nav Links (Matching Original Website) -->
+    <nav class="d-none d-lg-block nav-menu">
+      <ul class="d-flex align-items-center gap-2 gap-xl-3.5 list-unstyled mb-0">
         <li><a href="#hero" class="nav-link-custom active">หน้าแรก</a></li>
         <li><a href="#about" class="nav-link-custom">เกี่ยวกับเรา</a></li>
         <li><a href="#features" class="nav-link-custom">หลักสูตร</a></li>
         <li><a href="#schedule" class="nav-link-custom">แผนการเรียน</a></li>
         <li><a href="#lecturers" class="nav-link-custom">คณาจารย์</a></li>
-        <li><a href="#showcases" class="nav-link-custom">กิจกรรมเด่น</a></li>
-        <li><a href="#careers" class="nav-link-custom text-accent fw-semibold"><i class="bi bi-rocket-takeoff-fill me-1"></i>สายอาชีพ</a></li>
         <li><a href="#download" class="nav-link-custom">ดาวน์โหลด</a></li>
         <li><a href="#contact" class="nav-link-custom">ติดต่อเรา</a></li>
       </ul>
     </nav>
 
-    <!-- Right Controls -->
+    <!-- Right Controls: Mobile Menu Toggle only -->
     <div class="d-flex align-items-center gap-2 flex-shrink-0">
-      <!-- Dark/Light Theme Switcher -->
-      <button type="button" class="btn btn-theme-toggle rounded-circle shadow-sm" id="themeToggleBtn" aria-label="Toggle dark/light mode">
-        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
-      </button>
-
-      <!-- Apply Button -->
-      <a href="{{ contact_info.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm rounded-pill px-3.5 py-2 d-none d-sm-inline-flex align-items-center shadow-sm text-nowrap">
-        <i class="bi bi-mortarboard-fill me-1.5"></i> สมัครเรียน
-      </a>
-
       <!-- Mobile/Tablet Nav Toggle -->
-      <button class="btn btn-mobile-toggle d-xl-none p-2 rounded-circle border-0 text-body" type="button" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+      <button class="btn btn-mobile-toggle d-lg-none p-2 rounded-circle border-0 text-body" type="button" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
         <i class="bi bi-list fs-2"></i>
       </button>
     </div>
   </div>
 
   <!-- Mobile Drawer Nav -->
-  <div class="mobile-drawer d-xl-none" id="mobileDrawer">
+  <div class="mobile-drawer d-lg-none" id="mobileDrawer">
     <div class="mobile-drawer-inner p-4">
       <div class="d-flex align-items-center justify-content-between mb-4">
         <div class="d-flex align-items-center gap-2.5">
@@ -60,8 +48,6 @@
         <li><a href="#features" class="mobile-nav-link"><i class="bi bi-book-fill me-2"></i>หลักสูตร</a></li>
         <li><a href="#schedule" class="mobile-nav-link"><i class="bi bi-calendar3 me-2"></i>แผนการเรียน</a></li>
         <li><a href="#lecturers" class="mobile-nav-link"><i class="bi bi-people-fill me-2"></i>คณาจารย์</a></li>
-        <li><a href="#showcases" class="mobile-nav-link"><i class="bi bi-trophy-fill me-2"></i>กิจกรรมเด่น</a></li>
-        <li><a href="#careers" class="mobile-nav-link text-accent fw-bold"><i class="bi bi-rocket-takeoff-fill me-2"></i>สายอาชีพ & ทุนเรียน</a></li>
         <li><a href="#download" class="mobile-nav-link"><i class="bi bi-file-earmark-arrow-down-fill me-2"></i>ดาวน์โหลด</a></li>
         <li><a href="#contact" class="mobile-nav-link"><i class="bi bi-telephone-fill me-2"></i>ติดต่อเรา</a></li>
       </ul>
