@@ -10,9 +10,9 @@
       <span class="brand-text text-dark fw-bold fs-5 ms-1" style="letter-spacing:-0.5px; white-space: nowrap;">วิทยาการคอมพิวเตอร์</span>
     </a>
 
-    <!-- Desktop Nav Links (Matching Original Website) -->
-    <nav class="d-none d-lg-block nav-menu">
-      <ul class="d-flex align-items-center gap-2 gap-xl-3.5 list-unstyled mb-0">
+    <!-- Desktop Nav Links (Shifted Right to Fill Empty Space) -->
+    <nav class="d-none d-lg-block nav-menu ms-auto me-lg-3">
+      <ul class="d-flex align-items-center gap-2 gap-xl-3 list-unstyled mb-0">
         <li><a href="#hero" class="nav-link-custom active">หน้าแรก</a></li>
         <li><a href="#about" class="nav-link-custom">เกี่ยวกับเรา</a></li>
         <li><a href="#features" class="nav-link-custom">หลักสูตร</a></li>
@@ -23,8 +23,12 @@
       </ul>
     </nav>
 
-    <!-- Right Controls: Mobile Menu Toggle only -->
+    <!-- Right Controls: Dark/Light Mode Switcher & Mobile Toggle -->
     <div class="d-flex align-items-center gap-2 flex-shrink-0">
+      <button type="button" class="btn btn-theme-toggle rounded-circle shadow-sm" id="themeToggleBtn" aria-label="Toggle dark/light mode">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+      </button>
+
       <!-- Mobile/Tablet Nav Toggle -->
       <button class="btn btn-mobile-toggle d-lg-none p-2 rounded-circle border-0 text-body" type="button" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
         <i class="bi bi-list fs-2"></i>
