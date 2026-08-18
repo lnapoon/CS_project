@@ -251,38 +251,52 @@ body {
   border: 1px solid rgba(247, 138, 219, 0.32) !important;
 }
 
-/* Buttons System */
+/* Buttons System - Two-Stage Soft Tone to Solid Vibrant Theme Color Transformation */
 .btn-accent {
-  background: var(--gradient-primary) !important;
-  color: #ffffff !important;
-  border: none;
+  background: rgba(232, 23, 165, 0.12) !important;
+  color: #c40a8a !important;
+  border: 1.5px solid rgba(232, 23, 165, 0.3) !important;
   font-weight: 600;
-  box-shadow: 0 6px 20px var(--accent-glow);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(232, 23, 165, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.btn-accent:hover, .btn-accent:focus {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(232, 23, 165, 0.45);
+[data-theme="dark"] .btn-accent {
+  background: rgba(247, 138, 219, 0.16) !important;
+  color: #f78adb !important;
+  border: 1.5px solid rgba(247, 138, 219, 0.38) !important;
+}
+
+.btn-accent:hover, .btn-accent:focus, .btn-accent:active, .btn-accent.active {
+  background: var(--gradient-primary) !important;
   color: #ffffff !important;
+  border-color: transparent !important;
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 10px 28px var(--accent-glow) !important;
 }
 
 .btn-outline-accent {
-  border: 2px solid #c40a8a !important;
+  background: rgba(232, 23, 165, 0.08) !important;
+  border: 1.5px solid rgba(232, 23, 165, 0.35) !important;
   color: #c40a8a !important;
-  background: transparent;
   font-weight: 600;
+  border-radius: 999px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 [data-theme="dark"] .btn-outline-accent {
-  border: 2px solid #f78adb !important;
+  background: rgba(247, 138, 219, 0.12) !important;
+  border: 1.5px solid rgba(247, 138, 219, 0.35) !important;
   color: #f78adb !important;
 }
 
-.btn-outline-accent:hover {
+.btn-outline-accent:hover, .btn-outline-accent:focus, .btn-outline-accent:active {
   background: var(--gradient-primary) !important;
   border-color: transparent !important;
   color: #ffffff !important;
-  box-shadow: 0 8px 24px var(--accent-glow);
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 10px 28px var(--accent-glow) !important;
 }
 
 .btn-outline-secondary {
@@ -583,15 +597,17 @@ body {
 
 /* ==========================================================================
    GLOBAL FIX: Close (X) Buttons in Dark Mode & Lecturer Modal Styling
+/* ==========================================================================
+   GLOBAL FIX: Close (X) Buttons with Rotation Effect & Proper Spacing
    ========================================================================== */
 .btn-close {
   opacity: 0.85;
-  transition: all 0.2s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
 }
 
 .btn-close:hover {
-  opacity: 1;
-  transform: scale(1.1);
+  opacity: 1 !important;
+  transform: rotate(90deg) scale(1.15) !important; /* Smooth 90deg rotation on hover! */
 }
 
 /* Ensure Close (X) button is NEVER invisible in Dark Mode across modals & drawers */
@@ -603,14 +619,28 @@ body {
   opacity: 0.95 !important;
 }
 
-.btn-close-custom {
-  transition: all 0.25s ease;
+/* Lecturer Modal Close Button (X) Spacing & Hover Rotation */
+.modal-close-btn {
+  top: 1.5rem !important;
+  right: 1.5rem !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
   color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease !important;
+  cursor: pointer !important;
+  z-index: 15 !important;
 }
 
-.btn-close-custom:hover {
-  background: rgba(255, 255, 255, 0.35) !important;
-  transform: scale(1.12);
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.38) !important;
+  transform: rotate(90deg) scale(1.15) !important; /* 90deg rotation effect matching reference site! */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
 @media (min-width: 768px) {
