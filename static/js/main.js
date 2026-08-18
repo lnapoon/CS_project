@@ -285,29 +285,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 10. Lecturer Modal Populator
+  // 10. Lecturer Modal Populator (Rich 2-Column Modal matching comsci-sskru.vercel.app)
   const viewLecturerBtns = document.querySelectorAll('.view-lecturer-btn');
   const lecturerModalEl = document.getElementById('lecturerModal');
   const lecturerModal = lecturerModalEl ? new bootstrap.Modal(lecturerModalEl) : null;
   const modalName = document.getElementById('modalLecturerName');
+  const modalEnName = document.getElementById('modalLecturerEnName');
+  const modalRole = document.getElementById('modalLecturerRole');
   const modalSpecialty = document.getElementById('modalLecturerSpecialty');
-  const modalEdu = document.getElementById('modalLecturerEdu');
-  const modalBio = document.getElementById('modalLecturerBio');
   const modalImg = document.getElementById('modalLecturerImg');
+  const modalEduTimeline = document.getElementById('modalLecturerEduTimeline');
+  const modalCoursesGrid = document.getElementById('modalLecturerCoursesGrid');
+  const modalPubBox = document.getElementById('modalLecturerPubBox');
 
   viewLecturerBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
       const name = btn.getAttribute('data-name');
+      const en = btn.getAttribute('data-en');
+      const role = btn.getAttribute('data-role');
       const specialty = btn.getAttribute('data-specialty');
-      const edu = btn.getAttribute('data-edu');
-      const bio = btn.getAttribute('data-bio');
       const img = btn.getAttribute('data-img');
+      const pubTitle = btn.getAttribute('data-pubtitle');
+      const pubAuthors = btn.getAttribute('data-pubauthors');
+      const pubJournal = btn.getAttribute('data-pubjournal');
 
       if (modalName) modalName.textContent = name;
-      if (modalSpecialty) modalSpecialty.textContent = `เชี่ยวชาญ: ${specialty}`;
-      if (modalEdu) modalEdu.textContent = edu;
-      if (modalBio) modalBio.textContent = bio;
+      if (modalEnName) modalEnName.textContent = en;
+      if (modalRole) modalRole.textContent = role;
+      if (modalSpecialty) modalSpecialty.textContent = specialty;
       if (modalImg && img) modalImg.src = img;
+
+      // Parse JSON scripts for Education History and Courses Taught
+      let eduhistory = [];
+      let courses = [];
+
+      try {
+        const eduScript = document.getElementById(id);
+        if (eduScript) eduhistory = JSON.parse(eduScript.textContent);
+      } catch (e) { console.error(e); }
+
+      try {
+        const courseScript = document.getElementById(`${id}_courses`);
+        if (courseScript) courses = JSON.parse(courseScript.textContent);
+      } catch (e) { console.error(e); }
+
+      // 1) Render Education Timeline
+      if (modalEduTimeline) {
+        if (eduhistory && eduhistory.length > 0) {
+          modalEduTimeline.innerHTML = eduhistory.map(item => `
+            <div class="timeline-item position-relative mb-3.5 ps-3" style="border-left: 2px solid var(--accent-color);">
+              <div class="position-absolute" style="left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent-color);"></div>
+              <h5 class="fw-bold text-body mb-0 fs-6">${item.degree}</h5>
+              <p class="text-muted small mb-1" style="font-size:0.85rem">${item.univ}</p>
+              <span class="badge bg-accent-subtle text-accent rounded-pill px-2.5 py-0.5 font-monospace" style="font-size:0.75rem">${item.year}</span>
+            </div>
+          `).join('');
+        } else {
+          modalEduTimeline.innerHTML = `<p class="text-muted small">ไม่มีข้อมูลประวัติการศึกษา</p>`;
+        }
+      }
+
+      // 2) Render Main Courses Taught Grid
+      if (modalCoursesGrid) {
+        if (courses && courses.length > 0) {
+          modalCoursesGrid.innerHTML = courses.map(c => `
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border bg-body-tertiary h-100 shadow-sm">
+                <span class="badge bg-success-subtle text-success font-monospace fw-bold mb-1" style="font-size:0.78rem">${c.code}</span>
+                <h6 class="fw-bold text-body mb-1" style="font-size:0.9rem">${c.name}</h6>
+                <small class="text-muted d-block" style="font-size:0.78rem">หน่วยกิต: ${c.credit}</small>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          modalCoursesGrid.innerHTML = `<div class="col-12"><p class="text-muted small">ไม่มีข้อมูลรายวิชา</p></div>`;
+        }
+      }
+
+      // 3) Render Publications Box
+      if (modalPubBox) {
+        if (pubTitle) {
+          modalPubBox.innerHTML = `
+            <div class="p-3.5 rounded-3 border bg-success-subtle border-success-subtle">
+              <div class="d-flex align-items-start gap-2">
+                <i class="bi bi-quote fs-2 text-success lh-1 flex-shrink-0"></i>
+                <div>
+                  <h6 class="fw-bold text-body mb-2" style="font-size:0.95rem;line-height:1.5">${pubTitle}</h6>
+                  <p class="text-muted small mb-2" style="font-size:0.82rem">${pubAuthors}</p>
+                  <span class="badge bg-success text-white rounded-pill px-3 py-1 font-monospace" style="font-size:0.78rem;white-space:normal;text-align:left;line-height:1.4">${pubJournal}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          modalPubBox.innerHTML = `<p class="text-muted small">ไม่มีข้อมูลผลงานตีพิมพ์</p>`;
+        }
+      }
 
       if (lecturerModal) lecturerModal.show();
     });

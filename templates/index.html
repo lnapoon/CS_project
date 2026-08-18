@@ -428,9 +428,22 @@
                 <span class="badge bg-accent-subtle text-accent px-3 py-1.5 mb-4" style="font-size:0.85rem">{{ lec.specialty }}</span>
               </div>
 
-              <button class="btn btn-outline-accent btn-sm px-4 mt-auto rounded-pill view-lecturer-btn" data-id="{{ lec.id }}" data-name="{{ lec.name }}" data-bio="{{ lec.bio }}" data-edu="{{ lec.education }}" data-specialty="{{ lec.specialty }}" data-img="{% static lec.img %}">
+              <button class="btn btn-outline-accent btn-sm px-4 mt-auto rounded-pill view-lecturer-btn" 
+                      data-id="{{ lec.id }}" 
+                      data-name="{{ lec.name }}" 
+                      data-en="{{ lec.en_name }}"
+                      data-role="{{ lec.role }}"
+                      data-specialty="{{ lec.specialty }}" 
+                      data-img="{% static lec.img %}"
+                      data-pubtitle="{{ lec.publication.title }}"
+                      data-pubauthors="{{ lec.publication.authors }}"
+                      data-pubjournal="{{ lec.publication.journal }}">
                 <i class="bi bi-file-person me-1"></i> ดูประวัติและผลงานวิชาการ
               </button>
+              {{ lec.education_history|json_script:lec.id }}
+              {% with course_id=lec.id|add:"_courses" %}
+              {{ lec.courses_taught|json_script:course_id }}
+              {% endwith %}
             </div>
           </div>
         </div>
@@ -902,34 +915,71 @@
   </div>
 </footer>
 
-<!-- Lecturer Detail Modal -->
+<!-- Lecturer Detail Modal (Exact Reference Layout matching comsci-sskru.vercel.app) -->
 <div class="modal fade" id="lecturerModal" tabindex="-1" aria-labelledby="lecturerModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content border-0 rounded-4 glass-card shadow-lg">
-      <div class="modal-header border-0 pb-0">
-        <h3 class="modal-title fw-bold text-body h5" id="lecturerModalLabel"><i class="bi bi-person-badge-fill text-accent me-2"></i>ประวัติและผลงานวิชาการ</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-4">
-        <div class="text-center mb-4">
-          <div class="avatar-circle rounded-circle shadow-md p-1 bg-body mx-auto mb-3" style="width:100px;height:100px;">
-            <img id="modalLecturerImg" src="" alt="Lecturer" width="92" height="92" class="rounded-circle object-fit-cover" />
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden glass-card">
+      
+      <!-- Header Banner (Dark Indigo/Navy Header) -->
+      <div class="modal-header-banner p-4 text-white position-relative" style="background: linear-gradient(135deg, #102a43 0%, #1a365d 100%);">
+        <div class="d-flex align-items-center gap-3 pe-5">
+          <div class="avatar-circle rounded-circle shadow-md p-1 bg-white flex-shrink-0" style="width:84px;height:84px;">
+            <img id="modalLecturerImg" src="" alt="Lecturer" width="76" height="76" class="rounded-circle object-fit-cover" />
           </div>
-          <h4 class="fw-bold text-accent mb-1 h5" id="modalLecturerName"></h4>
-          <span class="badge bg-accent-subtle text-accent rounded-pill px-3 py-1 mb-2 d-inline-block" id="modalLecturerSpecialty"></span>
+          <div>
+            <h3 class="fw-bold text-white mb-1 fs-4" id="modalLecturerName"></h3>
+            <p class="text-white-50 small mb-2 font-monospace" id="modalLecturerEnName"></p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-white text-dark px-3 py-1 font-monospace small" id="modalLecturerRole"></span>
+              <span class="badge rounded-pill bg-info text-white px-3 py-1 small" id="modalLecturerSpecialty"></span>
+            </div>
+          </div>
         </div>
-        <div class="p-3 bg-body-tertiary rounded-3 mb-3">
-          <h5 class="fw-bold text-body mb-2 h6"><i class="bi bi-mortarboard-fill text-accent me-2"></i>วุฒิการศึกษา</h5>
-          <p class="text-body small mb-0" id="modalLecturerEdu"></p>
-        </div>
-        <div class="p-3 bg-body-tertiary rounded-3">
-          <h5 class="fw-bold text-body mb-2 h6"><i class="bi bi-journal-text text-accent me-2"></i>ประวัติและประสบการณ์</h5>
-          <p class="text-body small mb-0" id="modalLecturerBio"></p>
+
+        <!-- Visible X Close Button in both Light & Dark modes -->
+        <button type="button" class="btn-close-custom position-absolute top-0 end-0 m-3.5 d-flex align-items-center justify-content-center text-white" data-bs-dismiss="modal" aria-label="Close" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);border:none;cursor:pointer;">
+          <i class="bi bi-x-lg fs-6"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Two-Column Layout) -->
+      <div class="modal-body p-4 p-md-5">
+        <div class="row g-4">
+          <!-- Left Column: Education Timeline -->
+          <div class="col-12 col-md-5 border-end-md">
+            <h4 class="fw-bold text-body mb-4 fs-5 d-flex align-items-center">
+              <i class="bi bi-mortarboard-fill text-accent me-2"></i>ประวัติการศึกษา
+            </h4>
+            <div class="education-timeline ps-2" id="modalLecturerEduTimeline">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Right Column: Courses & Publications -->
+          <div class="col-12 col-md-7">
+            <!-- Main Courses Taught -->
+            <div class="mb-4">
+              <h4 class="fw-bold text-body mb-3 fs-5 d-flex align-items-center">
+                <i class="bi bi-book-fill text-accent me-2"></i>รายวิชาที่สอนหลัก
+              </h4>
+              <div class="row g-2.5" id="modalLecturerCoursesGrid">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+
+            <!-- Publications -->
+            <div>
+              <h4 class="fw-bold text-body mb-3 fs-5 d-flex align-items-center">
+                <i class="bi bi-journal-richtext text-accent me-2"></i>ผลงานตีพิมพ์ทางวิชาการ
+              </h4>
+              <div id="modalLecturerPubBox">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary rounded-pill px-4 btn-sm" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
-      </div>
+
     </div>
   </div>
 </div>

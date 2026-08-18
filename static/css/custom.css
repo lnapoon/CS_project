@@ -497,3 +497,44 @@ body {
   .floating-badge { font-size: 0.75rem; padding: 0.4rem 0.75rem; }
   button, a.btn, input, select { min-height: 44px; }
 }
+
+/* ==========================================================================
+   GLOBAL FIX: Close (X) Buttons in Dark Mode & Lecturer Modal Styling
+   ========================================================================== */
+.btn-close {
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Ensure Close (X) button is NEVER invisible in Dark Mode across modals & drawers */
+[data-theme="dark"] .btn-close,
+[data-theme="dark"] .btn-close-white,
+.mobile-drawer .btn-close,
+.modal-header .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%) !important;
+  opacity: 0.95 !important;
+}
+
+.btn-close-custom {
+  transition: all 0.25s ease;
+  color: #ffffff !important;
+}
+
+.btn-close-custom:hover {
+  background: rgba(255, 255, 255, 0.35) !important;
+  transform: scale(1.12);
+}
+
+@media (min-width: 768px) {
+  .border-end-md {
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  [data-theme="dark"] .border-end-md {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
