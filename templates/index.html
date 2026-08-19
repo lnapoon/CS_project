@@ -1,13 +1,25 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <!-- Navbar -->
 <header class="navbar-header fixed-top">
-  <div class="container-fluid container-xl navbar-container d-flex align-items-center justify-content-between px-3 px-md-4">
-    <a class="navbar-brand d-flex align-items-center gap-2.5 fw-bold text-decoration-none ps-1 flex-shrink-0" href="#hero">
-      <img src="{% static 'images/logo.png' %}" alt="สาขาวิชาฯ โลโก้" width="40" height="40" class="rounded-circle shadow-sm flex-shrink-0" />
-      <span class="brand-text text-dark fw-bold fs-5 ms-1" style="letter-spacing:-0.5px; white-space: nowrap;">วิทยาการคอมพิวเตอร์</span>
+  <div
+    class="container-fluid container-xl navbar-container d-flex align-items-center justify-content-between px-3 px-md-4"
+  >
+    <a
+      class="navbar-brand d-flex align-items-center gap-2.5 fw-bold text-decoration-none ps-1 flex-shrink-0"
+      href="#hero"
+    >
+      <img
+        src="{% static 'images/logo.png' %}"
+        alt="สาขาวิชาฯ โลโก้"
+        width="40"
+        height="40"
+        class="rounded-circle shadow-sm flex-shrink-0"
+      />
+      <span
+        class="brand-text text-dark fw-bold fs-5 ms-1"
+        style="letter-spacing: -0.5px; white-space: nowrap"
+        >วิทยาการคอมพิวเตอร์</span
+      >
     </a>
 
     <!-- Desktop Nav Links (Shifted Right to Fill Empty Space) -->
@@ -25,12 +37,22 @@
 
     <!-- Right Controls: Dark/Light Mode Switcher & Mobile Toggle -->
     <div class="d-flex align-items-center gap-2 flex-shrink-0">
-      <button type="button" class="btn btn-theme-toggle rounded-circle shadow-sm" id="themeToggleBtn" aria-label="Toggle dark/light mode">
+      <button
+        type="button"
+        class="btn btn-theme-toggle rounded-circle shadow-sm"
+        id="themeToggleBtn"
+        aria-label="Toggle dark/light mode"
+      >
         <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
       </button>
 
       <!-- Mobile/Tablet Nav Toggle -->
-      <button class="btn btn-mobile-toggle d-lg-none p-2 rounded-circle border-0 text-body" type="button" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+      <button
+        class="btn btn-mobile-toggle d-lg-none p-2 rounded-circle border-0 text-body"
+        type="button"
+        id="mobileMenuBtn"
+        aria-label="Toggle Navigation Menu"
+      >
         <i class="bi bi-list fs-2"></i>
       </button>
     </div>
@@ -41,22 +63,66 @@
     <div class="mobile-drawer-inner p-4">
       <div class="d-flex align-items-center justify-content-between mb-4">
         <div class="d-flex align-items-center gap-2.5">
-          <img src="{% static 'images/logo.png' %}" alt="Logo" width="36" height="36" class="rounded-circle" />
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo"
+            width="36"
+            height="36"
+            class="rounded-circle"
+          />
           <span class="fw-bold text-body">วิทยาการคอมพิวเตอร์ SSKRU</span>
         </div>
-        <button class="btn-close text-reset" id="mobileDrawerClose" aria-label="Close menu"></button>
+        <button
+          class="btn-close text-reset"
+          id="mobileDrawerClose"
+          aria-label="Close menu"
+        ></button>
       </div>
       <ul class="list-unstyled d-flex flex-column gap-2 mb-4">
-        <li><a href="#hero" class="mobile-nav-link active"><i class="bi bi-house-door-fill me-2"></i>หน้าแรก</a></li>
-        <li><a href="#about" class="mobile-nav-link"><i class="bi bi-info-circle-fill me-2"></i>เกี่ยวกับเรา</a></li>
-        <li><a href="#features" class="mobile-nav-link"><i class="bi bi-book-fill me-2"></i>หลักสูตร</a></li>
-        <li><a href="#schedule" class="mobile-nav-link"><i class="bi bi-calendar3 me-2"></i>แผนการเรียน</a></li>
-        <li><a href="#lecturers" class="mobile-nav-link"><i class="bi bi-people-fill me-2"></i>คณาจารย์</a></li>
-        <li><a href="#download" class="mobile-nav-link"><i class="bi bi-file-earmark-arrow-down-fill me-2"></i>ดาวน์โหลด</a></li>
-        <li><a href="#contact" class="mobile-nav-link"><i class="bi bi-telephone-fill me-2"></i>ติดต่อเรา</a></li>
+        <li>
+          <a href="#hero" class="mobile-nav-link active"
+            ><i class="bi bi-house-door-fill me-2"></i>หน้าแรก</a
+          >
+        </li>
+        <li>
+          <a href="#about" class="mobile-nav-link"
+            ><i class="bi bi-info-circle-fill me-2"></i>เกี่ยวกับเรา</a
+          >
+        </li>
+        <li>
+          <a href="#features" class="mobile-nav-link"
+            ><i class="bi bi-book-fill me-2"></i>หลักสูตร</a
+          >
+        </li>
+        <li>
+          <a href="#schedule" class="mobile-nav-link"
+            ><i class="bi bi-calendar3 me-2"></i>แผนการเรียน</a
+          >
+        </li>
+        <li>
+          <a href="#lecturers" class="mobile-nav-link"
+            ><i class="bi bi-people-fill me-2"></i>คณาจารย์</a
+          >
+        </li>
+        <li>
+          <a href="#download" class="mobile-nav-link"
+            ><i class="bi bi-file-earmark-arrow-down-fill me-2"></i>ดาวน์โหลด</a
+          >
+        </li>
+        <li>
+          <a href="#contact" class="mobile-nav-link"
+            ><i class="bi bi-telephone-fill me-2"></i>ติดต่อเรา</a
+          >
+        </li>
       </ul>
-      <a href="{{ contact_info.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent w-100 rounded-pill py-2.5 shadow-sm text-center fw-bold">
-        <i class="bi bi-mortarboard-fill me-2"></i>สมัครเข้าศึกษาต่อ (ระบบรับสมัคร)
+      <a
+        href="{{ contact_info.apply_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-accent w-100 rounded-pill py-2.5 shadow-sm text-center fw-bold"
+      >
+        <i class="bi bi-mortarboard-fill me-2"></i>สมัครเข้าศึกษาต่อ
+        (ระบบรับสมัคร)
       </a>
     </div>
   </div>
@@ -64,47 +130,96 @@
 
 <main>
   <!-- Hero Section -->
-  <section id="hero" class="hero-section py-5 position-relative overflow-hidden pt-5">
+  <section
+    id="hero"
+    class="hero-section py-5 position-relative overflow-hidden pt-5"
+  >
     <div class="container hero-container pt-5 pb-4">
       <div class="row align-items-center gy-5 gy-lg-0 pt-3">
         <!-- Left Hero Content -->
-        <div class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start">
-          <div class="badge rounded-pill bg-accent-subtle text-accent border border-accent px-3 py-2 fw-semibold mb-3 reveal-init">
+        <div
+          class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start"
+        >
+          <div
+            class="badge rounded-pill bg-accent-subtle text-accent border border-accent px-3 py-2 fw-semibold mb-3 reveal-init"
+          >
             🎓 มุ่งสู่วิชาชีพไอทีและผู้นำนวัตกรรมเทคโนโลยี
           </div>
 
           <!-- Headline with Dynamic Rotating Typewriter Effect -->
-          <h1 class="display-4 fw-bold mb-4 text-body hero-title reveal-init reveal-delay-1" style="line-height: 1.3">
+          <h1
+            class="display-4 fw-bold mb-4 text-body hero-title reveal-init reveal-delay-1"
+            style="line-height: 1.3"
+          >
             <div class="mb-1">สาขาวิชาวิทยาการคอมพิวเตอร์</div>
             <div class="typewriter-wrapper">
-              <span class="text-accent me-1 fw-bold" id="typewriterText" data-words='["มรภ.ศรีสะเกษ", "สร้างอนาคตซอฟต์แวร์", "ผู้นำ AI & Data", "เทคโนโลยีเปลี่ยนโลก"]'>มรภ.ศรีสะเกษ</span>
+              <span
+                class="text-accent me-1 fw-bold"
+                id="typewriterText"
+                data-words='["มรภ.ศรีสะเกษ", "สร้างอนาคตซอฟต์แวร์", "ผู้นำ AI & Data", "เทคโนโลยีเปลี่ยนโลก"]'
+                >มรภ.ศรีสะเกษ</span
+              >
               <span class="typewriter-cursor"></span>
             </div>
           </h1>
 
-          <p class="lead mb-4 text-muted hero-subtitle reveal-init reveal-delay-2" style="font-size: 1.15rem">
-            "ก้าวสู่อนาคตทางเทคโนโลยี สร้างสรรค์ซอฟต์แวร์แห่งนวัตกรรม" หลักสูตรที่มุ่งผลิตนักวิทยาศาสตร์คอมพิวเตอร์ โปรแกรมเมอร์ และนักวิเคราะห์ข้อมูล เพื่อเข้าสู่ตลาดงานยุคดิจิทัลระดับโลก
+          <p
+            class="lead mb-4 text-muted hero-subtitle reveal-init reveal-delay-2"
+            style="font-size: 1.15rem"
+          >
+            "ก้าวสู่อนาคตทางเทคโนโลยี สร้างสรรค์ซอฟต์แวร์แห่งนวัตกรรม"
+            หลักสูตรที่มุ่งผลิตนักวิทยาศาสตร์คอมพิวเตอร์ โปรแกรมเมอร์
+            และนักวิเคราะห์ข้อมูล เพื่อเข้าสู่ตลาดงานยุคดิจิทัลระดับโลก
           </p>
-          <div class="d-flex gap-2 gap-md-3 flex-column flex-sm-row justify-content-center justify-content-lg-start mb-5 reveal-init reveal-delay-3">
-            <a class="btn btn-accent btn-lg px-4 py-3 shadow-lg rounded-pill fw-semibold text-white" href="{{ contact_info.apply_url }}" target="_blank" rel="noopener noreferrer">
+          <div
+            class="d-flex gap-2 gap-md-3 flex-column flex-sm-row justify-content-center justify-content-lg-start mb-5 reveal-init reveal-delay-3"
+          >
+            <a
+              class="btn btn-accent btn-lg px-4 py-3 shadow-lg rounded-pill fw-semibold text-white"
+              href="{{ contact_info.apply_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="bi bi-mortarboard-fill me-2"></i>สมัครเข้าศึกษาต่อ
             </a>
-            <a href="#features" class="btn btn-outline-accent btn-lg px-4 py-3 rounded-pill fw-semibold">
+            <a
+              href="#features"
+              class="btn btn-outline-accent btn-lg px-4 py-3 rounded-pill fw-semibold"
+            >
               <i class="bi bi-book me-2"></i>ข้อมูลวิชาหลักสูตร
             </a>
           </div>
 
           <!-- Hero Stats with Perfectly Sized Responsive Layout (No Overflow) -->
-          <div class="row g-2 g-sm-3 hero-stats-container reveal-init reveal-delay-4">
+          <div
+            class="row g-2 g-sm-3 hero-stats-container reveal-init reveal-delay-4"
+          >
             {% for stat in hero_stats %}
             <div class="col-6 col-sm-3">
-              <div class="stat-card text-center text-lg-start p-2.5 p-sm-3 rounded-4 glass-card shimmer-card hover-elevate h-100 d-flex flex-column justify-content-center">
+              <div
+                class="stat-card text-center text-lg-start p-2.5 p-sm-3 rounded-4 glass-card shimmer-card hover-elevate h-100 d-flex flex-column justify-content-center"
+              >
                 <i class="bi {{ stat.icon }} text-accent fs-5 d-block mb-1"></i>
-                <div class="d-flex align-items-baseline justify-content-center justify-content-lg-start gap-1 flex-wrap mb-0.5">
-                  <span class="counter-value h3 fw-bold text-accent mb-0" data-target="{{ stat.value }}">0</span>
-                  <span class="fw-bold text-accent small" style="font-size: 0.85rem;">{{ stat.unit }}</span>
+                <div
+                  class="d-flex align-items-baseline justify-content-center justify-content-lg-start gap-1 flex-wrap mb-0.5"
+                >
+                  <span
+                    class="counter-value h3 fw-bold text-accent mb-0"
+                    data-target="{{ stat.value }}"
+                    >0</span
+                  >
+                  <span
+                    class="fw-bold text-accent small"
+                    style="font-size: 0.85rem"
+                    >{{ stat.unit }}</span
+                  >
                 </div>
-                <p class="text-muted mb-0 small" style="font-size: 0.8rem; line-height: 1.3;">{{ stat.label }}</p>
+                <p
+                  class="text-muted mb-0 small"
+                  style="font-size: 0.8rem; line-height: 1.3"
+                >
+                  {{ stat.label }}
+                </p>
               </div>
             </div>
             {% endfor %}
@@ -113,21 +228,37 @@
 
         <!-- Right Hero Visual -->
         <div class="col-12 col-lg-6 order-1 order-lg-2 reveal-init">
-          <div class="hero-visual-wrapper position-relative d-flex justify-content-center">
+          <div
+            class="hero-visual-wrapper position-relative d-flex justify-content-center"
+          >
             <div class="hero-image-backdrop"></div>
             <!-- Scaled & Proportioned Hero Logo -->
-            <img src="{% static 'images/hero-logo.png' %}" alt="สาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ" class="img-fluid hero-main-img rounded-5 shadow-lg position-relative z-1" width="270" />
-            
+            <img
+              src="{% static 'images/hero-logo.png' %}"
+              alt="สาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ"
+              class="img-fluid hero-main-img rounded-5 shadow-lg position-relative z-1"
+              width="270"
+            />
+
             <!-- Floating Badges in Themed Palette -->
-            <div class="floating-badge badge-1 glass-card shimmer-card shadow-sm" style="color: #e11d48;">
+            <div
+              class="floating-badge badge-1 glass-card shimmer-card shadow-sm"
+              style="color: #e11d48"
+            >
               <i class="bi bi-code-slash me-1.5"></i>
               <span>Software Dev</span>
             </div>
-            <div class="floating-badge badge-2 glass-card shimmer-card shadow-sm" style="color: #d946ef;">
+            <div
+              class="floating-badge badge-2 glass-card shimmer-card shadow-sm"
+              style="color: #d946ef"
+            >
               <i class="bi bi-robot me-1.5"></i>
               <span>Artificial Intelligence</span>
             </div>
-            <div class="floating-badge badge-3 glass-card shimmer-card shadow-sm" style="color: #f59e0b;">
+            <div
+              class="floating-badge badge-3 glass-card shimmer-card shadow-sm"
+              style="color: #f59e0b"
+            >
               <i class="bi bi-bar-chart-line-fill me-1.5"></i>
               <span>Data Science</span>
             </div>
@@ -142,21 +273,37 @@
     <div class="container">
       <div class="row mb-5">
         <div class="col-12">
-          <div class="about-tabs-card glass-card shimmer-card p-4 p-md-5 rounded-5 shadow-sm reveal-init">
+          <div
+            class="about-tabs-card glass-card shimmer-card p-4 p-md-5 rounded-5 shadow-sm reveal-init"
+          >
             <div class="text-center mb-4 pb-2">
-              <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold" style="font-size:0.95rem">
-                <i class="bi bi-award-fill me-1"></i> ข้อมูลรายละเอียดหลักสูตรเชิงกลยุทธ์
+              <span
+                class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"
+                style="font-size: 0.95rem"
+              >
+                <i class="bi bi-award-fill me-1"></i>
+                ข้อมูลรายละเอียดหลักสูตรเชิงกลยุทธ์
               </span>
-              <h2 class="fw-bold text-body" style="font-size:2rem">โครงสร้างเชิงเป้าหมาย & ผลลัพธ์การเรียนรู้</h2>
-              <p class="text-muted mx-auto mb-0" style="max-width:650px;font-size:1.08rem;line-height:1.7">
+              <h2 class="fw-bold text-body" style="font-size: 2rem">
+                โครงสร้างเชิงเป้าหมาย & ผลลัพธ์การเรียนรู้
+              </h2>
+              <p
+                class="text-muted mx-auto mb-0"
+                style="max-width: 650px; font-size: 1.08rem; line-height: 1.7"
+              >
                 ผสานทิศทางเพื่อสร้างผลลัพธ์การเรียนรู้เชิงทักษะและคุณธรรมจริยธรรมที่สอดคล้องกับมาตรฐานระดับประเทศ
               </p>
             </div>
 
             <!-- Tab Buttons -->
-            <div class="about-tab-nav d-flex flex-wrap justify-content-center gap-2 mb-4">
+            <div
+              class="about-tab-nav d-flex flex-wrap justify-content-center gap-2 mb-4"
+            >
               {% for tab in about_tabs %}
-              <button class="about-tab-btn btn rounded-pill px-3.5 py-2.5 fw-semibold {% if forloop.first %}active{% endif %}" data-tab="{{ tab.id }}">
+              <button
+                class="about-tab-btn btn rounded-pill px-3.5 py-2.5 fw-semibold {% if forloop.first %}active{% endif %}"
+                data-tab="{{ tab.id }}"
+              >
                 <i class="bi {{ tab.icon }} me-1.5"></i> {{ tab.title }}
               </button>
               {% endfor %}
@@ -165,16 +312,40 @@
             <!-- Tab Contents -->
             <div class="about-tab-content-wrapper p-3 p-md-4 rounded-4 bg-body">
               {% for tab in about_tabs %}
-              <div class="tab-pane-custom {% if forloop.first %}active{% endif %}" id="tab-{{ tab.id }}">
-                <div class="about-highlight-card text-center p-4 rounded-4 mb-4" style="background: rgba(217, 70, 239, 0.08); border: 1px solid rgba(217, 70, 239, 0.25);">
+              <div
+                class="tab-pane-custom {% if forloop.first %}active{% endif %}"
+                id="tab-{{ tab.id }}"
+              >
+                <div
+                  class="about-highlight-card text-center p-4 rounded-4 mb-4"
+                  style="
+                    background: rgba(217, 70, 239, 0.08);
+                    border: 1px solid rgba(217, 70, 239, 0.25);
+                  "
+                >
                   <i class="bi bi-quote fs-1 text-accent d-block mb-2"></i>
-                  <h3 class="fw-bold mb-3 text-accent h4" style="line-height:1.5">"{{ tab.quote }}"</h3>
+                  <h3
+                    class="fw-bold mb-3 text-accent h4"
+                    style="line-height: 1.5"
+                  >
+                    "{{ tab.quote }}"
+                  </h3>
                   <div class="d-flex justify-content-center">
-                    <span style="width:80px;height:3px;background:var(--gradient-primary);border-radius:2px"></span>
+                    <span
+                      style="
+                        width: 80px;
+                        height: 3px;
+                        background: var(--gradient-primary);
+                        border-radius: 2px;
+                      "
+                    ></span>
                   </div>
                 </div>
                 <div class="p-3 bg-body-tertiary rounded-3">
-                  <p class="text-body mb-0 text-center lead-sub" style="font-size:1.05rem;line-height:1.8">
+                  <p
+                    class="text-body mb-0 text-center lead-sub"
+                    style="font-size: 1.05rem; line-height: 1.8"
+                  >
                     {{ tab.desc|linebreaksbr }}
                   </p>
                 </div>
@@ -188,42 +359,105 @@
       <!-- Why Study CS Grid (Equal-Height Stretch with Spacious Spacing) -->
       <div class="row align-items-stretch g-4 g-lg-5">
         <div class="col-12 col-lg-6 reveal-init d-flex flex-column">
-          <div class="about-grid d-flex flex-column justify-content-between h-100 gap-3">
+          <div
+            class="about-grid d-flex flex-column justify-content-between h-100 gap-3"
+          >
             <!-- Main Dark Feature Card -->
-            <div class="grid-card main-card rounded-5 p-4 p-md-5 text-white shadow-lg overflow-hidden position-relative flex-grow-1 d-flex flex-column justify-content-between" style="background: linear-gradient(135deg, #1f0438 0%, #52058c 50%, #9c0c70 100%); border: 1px solid rgba(247, 138, 219, 0.28);">
+            <div
+              class="grid-card main-card rounded-5 p-4 p-md-5 text-white shadow-lg overflow-hidden position-relative flex-grow-1 d-flex flex-column justify-content-between"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #1f0438 0%,
+                  #52058c 50%,
+                  #9c0c70 100%
+                );
+                border: 1px solid rgba(247, 138, 219, 0.28);
+              "
+            >
               <div>
                 <!-- Top Badges Row -->
-                <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
-                  <span class="badge rounded-pill bg-white px-3.5 py-2 fw-bold shadow-sm" style="color:#6b04b6 !important; background-color:#ffffff !important;">
-                    <i class="bi bi-stars me-1.5 text-accent"></i>หลักสูตรวิทยาศาสตรบัณฑิต
+                <div
+                  class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2"
+                >
+                  <span
+                    class="badge rounded-pill bg-white px-3.5 py-2 fw-bold shadow-sm"
+                    style="
+                      color: #6b04b6 !important;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i class="bi bi-stars me-1.5 text-accent"></i
+                    >หลักสูตรวิทยาศาสตรบัณฑิต
                   </span>
-                  <span class="badge bg-white-10 text-white border border-white-20 rounded-pill px-3.5 py-2 small font-monospace">วท.บ. (4 ปี)</span>
+                  <span
+                    class="badge bg-white-10 text-white border border-white-20 rounded-pill px-3.5 py-2 small font-monospace"
+                    >วท.บ. (4 ปี)</span
+                  >
                 </div>
-                
+
                 <!-- Icon & Main Title -->
                 <div class="d-flex align-items-center mb-3.5">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="width:52px;height:52px; background: var(--gradient-primary); margin-right: 14px !important;">
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm"
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      background: var(--gradient-primary);
+                      margin-right: 14px !important;
+                    "
+                  >
                     <i class="bi bi-laptop-fill fs-3 text-white"></i>
                   </div>
                   <div>
-                    <h3 class="fw-bold mb-1 h4 text-white" style="font-size:1.35rem">วิทย์คอม มรภ.ศรีสะเกษ</h3>
-                    <p class="text-white-50 mb-0 small" style="font-size:0.95rem">มุ่งผลิตนักโปรแกรมเมอร์ ผู้นำ AI & Data Science</p>
+                    <h3
+                      class="fw-bold mb-1 h4 text-white"
+                      style="font-size: 1.35rem"
+                    >
+                      วิทย์คอม มรภ.ศรีสะเกษ
+                    </h3>
+                    <p
+                      class="text-white-50 mb-0 small"
+                      style="font-size: 0.95rem"
+                    >
+                      มุ่งผลิตนักโปรแกรมเมอร์ ผู้นำ AI & Data Science
+                    </p>
                   </div>
                 </div>
 
                 <!-- Paragraph Description -->
-                <p class="text-white-50 mb-4" style="font-size: 1.05rem; line-height: 1.75">
-                  เน้นเรียนรู้จากการลงมือปฏิบัติจริง โครงงานนวัตกรรมดิจิทัล และสหกิจศึกษาร่วมกับบริษัทเทคโนโลยีชั้นนำระดับประเทศ
+                <p
+                  class="text-white-50 mb-4"
+                  style="font-size: 1.05rem; line-height: 1.75"
+                >
+                  เน้นเรียนรู้จากการลงมือปฏิบัติจริง โครงงานนวัตกรรมดิจิทัล
+                  และสหกิจศึกษาร่วมกับบริษัทเทคโนโลยีชั้นนำระดับประเทศ
                 </p>
               </div>
 
               <!-- Bottom Feature Bullets -->
               <div class="pt-3.5 border-top border-white-10">
-                <small class="text-white-50 font-monospace d-block mb-2.5" style="font-size:0.82rem">จุดเด่นสำคัญของหลักสูตร:</small>
+                <small
+                  class="text-white-50 font-monospace d-block mb-2.5"
+                  style="font-size: 0.82rem"
+                  >จุดเด่นสำคัญของหลักสูตร:</small
+                >
                 <div class="d-flex flex-wrap gap-2">
-                  <span class="badge bg-white-10 text-white rounded-pill px-3 py-2 small fw-normal"><i class="bi bi-check-circle-fill text-success me-1.5"></i>โครงงานนวัตกรรม</span>
-                  <span class="badge bg-white-10 text-white rounded-pill px-3 py-2 small fw-normal"><i class="bi bi-check-circle-fill text-success me-1.5"></i>สหกิจศึกษาบริษัทไอที</span>
-                  <span class="badge bg-white-10 text-white rounded-pill px-3 py-2 small fw-normal"><i class="bi bi-check-circle-fill text-success me-1.5"></i>แล็บปฏิบัติการ 24 ชม.</span>
+                  <span
+                    class="badge bg-white-10 text-white rounded-pill px-3 py-2 small fw-normal"
+                    ><i class="bi bi-check-circle-fill text-success me-1.5"></i
+                    >โครงงานนวัตกรรม</span
+                  >
+                  <span
+                    class="badge bg-white-10 text-white rounded-pill px-3 py-2 small fw-normal"
+                    ><i class="bi bi-check-circle-fill text-success me-1.5"></i
+                    >สหกิจศึกษาบริษัทไอที</span
+                  >
+                  <span
+                    class="badge bg-white-10 text-white rounded-pill px-3 py-2 small fw-normal"
+                    ><i class="bi bi-check-circle-fill text-success me-1.5"></i
+                    >แล็บปฏิบัติการ 24 ชม.</span
+                  >
                 </div>
               </div>
             </div>
@@ -231,21 +465,69 @@
             <!-- Sub Cards Row -->
             <div class="row g-3">
               <div class="col-6">
-                <div class="grid-card sub-card rounded-4 p-3.5 p-md-4 text-white shadow-sm text-center h-100 d-flex flex-column align-items-center justify-content-center" style="background: linear-gradient(135deg, #c026d3 0%, #e11d48 100%); border: 1px solid rgba(255, 255, 255, 0.2);">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-white mb-2.5 shadow-sm" style="width:46px;height:46px; background-color:#ffffff !important;">
-                    <i class="bi bi-person-workspace fs-5" style="color:#e11d48 !important;"></i>
+                <div
+                  class="grid-card sub-card rounded-4 p-3.5 p-md-4 text-white shadow-sm text-center h-100 d-flex flex-column align-items-center justify-content-center"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #c026d3 0%,
+                      #e11d48 100%
+                    );
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                  "
+                >
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center bg-white mb-2.5 shadow-sm"
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-person-workspace fs-5"
+                      style="color: #e11d48 !important"
+                    ></i>
                   </div>
-                  <h4 class="fw-bold fs-6 mb-1 text-white">คณาจารย์ผู้เชี่ยวชาญ</h4>
-                  <small class="text-white-50" style="font-size:0.82rem">ดูแลและให้คำปรึกษาใกล้ชิด</small>
+                  <h4 class="fw-bold fs-6 mb-1 text-white">
+                    คณาจารย์ผู้เชี่ยวชาญ
+                  </h4>
+                  <small class="text-white-50" style="font-size: 0.82rem"
+                    >ดูแลและให้คำปรึกษาใกล้ชิด</small
+                  >
                 </div>
               </div>
               <div class="col-6">
-                <div class="grid-card sub-card rounded-4 p-3.5 p-md-4 text-white shadow-sm text-center h-100 d-flex flex-column align-items-center justify-content-center" style="background: linear-gradient(135deg, #7c3aed 0%, #b45309 100%); border: 1px solid rgba(255, 255, 255, 0.2);">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-white mb-2.5 shadow-sm" style="width:46px;height:46px; background-color:#ffffff !important;">
-                    <i class="bi bi-journal-code fs-5" style="color:#b45309 !important;"></i>
+                <div
+                  class="grid-card sub-card rounded-4 p-3.5 p-md-4 text-white shadow-sm text-center h-100 d-flex flex-column align-items-center justify-content-center"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #7c3aed 0%,
+                      #b45309 100%
+                    );
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                  "
+                >
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center bg-white mb-2.5 shadow-sm"
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-journal-code fs-5"
+                      style="color: #b45309 !important"
+                    ></i>
                   </div>
-                  <h4 class="fw-bold fs-6 mb-1 text-white">โครงงานวิจัยสมัยใหม่</h4>
-                  <small class="text-white-50" style="font-size:0.82rem">แล็บวิทย์คอมล้ำสมัย</small>
+                  <h4 class="fw-bold fs-6 mb-1 text-white">
+                    โครงงานวิจัยสมัยใหม่
+                  </h4>
+                  <small class="text-white-50" style="font-size: 0.82rem"
+                    >แล็บวิทย์คอมล้ำสมัย</small
+                  >
                 </div>
               </div>
             </div>
@@ -254,31 +536,63 @@
 
         <div class="col-12 col-lg-6 reveal-init reveal-delay-2">
           <div class="mb-4">
-            <h2 class="fw-bold text-body mb-3 h2" style="letter-spacing:-0.5px">ทำไมต้องเรียนวิทยาการคอมพิวเตอร์ ?</h2>
-            <p class="text-muted lead mb-0" style="font-size:1.1rem;line-height:1.7">
-              หลักสูตรและสาขาวิชาฯ มุ่งเตรียมความพร้อมเพื่อพัฒนาทักษะแห่งอนาคต ผสานทฤษฎีเทคโนโลยีขั้นสูงเข้ากับการลงมือปฏิบัติการจริง เพื่อสร้างเส้นทางอาชีพไอทีที่เติบโตและมั่นคงของตัวคุณเอง
+            <h2
+              class="fw-bold text-body mb-3 h2"
+              style="letter-spacing: -0.5px"
+            >
+              ทำไมต้องเรียนวิทยาการคอมพิวเตอร์ ?
+            </h2>
+            <p
+              class="text-muted lead mb-0"
+              style="font-size: 1.1rem; line-height: 1.7"
+            >
+              หลักสูตรและสาขาวิชาฯ มุ่งเตรียมความพร้อมเพื่อพัฒนาทักษะแห่งอนาคต
+              ผสานทฤษฎีเทคโนโลยีขั้นสูงเข้ากับการลงมือปฏิบัติการจริง
+              เพื่อสร้างเส้นทางอาชีพไอทีที่เติบโตและมั่นคงของตัวคุณเอง
             </p>
           </div>
 
           <div class="d-flex flex-column gap-3 mb-4">
             {% for item in why_us %}
-            <div class="d-flex gap-3 align-items-start p-3 rounded-4 glass-card border-0 shadow-sm hover-elevate">
-              <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="width:46px;height:46px; background: var(--gradient-primary);">
+            <div
+              class="d-flex gap-3 align-items-start p-3 rounded-4 glass-card border-0 shadow-sm hover-elevate"
+            >
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm"
+                style="
+                  width: 46px;
+                  height: 46px;
+                  background: var(--gradient-primary);
+                "
+              >
                 <i class="bi {{ item.icon }} fs-5"></i>
               </div>
               <div>
-                <h3 class="text-body fw-bold mb-1 h6" style="font-size:1.15rem">{{ item.title }}</h3>
-                <p class="text-muted mb-0 small" style="line-height:1.6">{{ item.desc }}</p>
+                <h3
+                  class="text-body fw-bold mb-1 h6"
+                  style="font-size: 1.15rem"
+                >
+                  {{ item.title }}
+                </h3>
+                <p class="text-muted mb-0 small" style="line-height: 1.6">
+                  {{ item.desc }}
+                </p>
               </div>
             </div>
             {% endfor %}
           </div>
 
           <div class="d-flex gap-2 gap-md-3 flex-column flex-sm-row mt-3">
-            <a href="#download" class="btn btn-accent btn-lg px-4 py-2.5 shadow-sm rounded-pill fw-semibold">
+            <a
+              href="#download"
+              class="btn btn-accent btn-lg px-4 py-2.5 shadow-sm rounded-pill fw-semibold"
+            >
               <i class="bi bi-download me-2"></i>เล่มรายละเอียดหลักสูตร
             </a>
-            <a href="#schedule" class="btn btn-outline-accent btn-lg px-4 py-2.5 rounded-pill fw-semibold">
+            <a
+              href="#schedule"
+              class="btn btn-outline-accent btn-lg px-4 py-2.5 rounded-pill fw-semibold"
+            >
               <i class="bi bi-calendar-event me-2"></i>แผนการเรียนตลอด 4 ปี
             </a>
           </div>
@@ -288,31 +602,60 @@
   </section>
 
   <!-- Features / Curriculum Section -->
-  <section id="features" class="section py-5 bg-body-secondary border-top border-bottom">
+  <section
+    id="features"
+    class="section py-5 bg-body-secondary border-top border-bottom"
+  >
     <div class="container">
       <div class="text-center mb-4 reveal-init">
-        <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"><i class="bi bi-journal-code me-1"></i> วิชาเรียนเข้มข้น ตอบโจทย์ตลาดงาน</span>
+        <span
+          class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"
+          ><i class="bi bi-journal-code me-1"></i> วิชาเรียนเข้มข้น
+          ตอบโจทย์ตลาดงาน</span
+        >
         <h2 class="fw-bold text-body mb-2">โครงสร้างหลักสูตรและวิชาเรียน</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
-          ข้อมูลรายละเอียดวิชาเรียนในสาขาวิชาฯ เพื่อปูทางให้เกิดทักษะความชำนาญเฉพาะด้านตามความต้องการของตลาดไอที
+        <p class="text-muted mx-auto" style="max-width: 600px">
+          ข้อมูลรายละเอียดวิชาเรียนในสาขาวิชาฯ
+          เพื่อปูทางให้เกิดทักษะความชำนาญเฉพาะด้านตามความต้องการของตลาดไอที
         </p>
       </div>
 
       <!-- Live Course Keyword Search Bar -->
       <div class="row justify-content-center mb-4 reveal-init">
         <div class="col-12 col-md-8 col-lg-6">
-          <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden glass-card shimmer-card">
-            <span class="input-group-text bg-transparent border-0 ps-3 text-accent"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control border-0 bg-transparent text-body ps-2" id="courseSearchInput" placeholder="ค้นหารายวิชา เช่น Python, AI, Security, Web..." />
-            <button class="btn btn-accent px-4 fw-semibold" type="button" id="clearCourseSearch">ล้างค้นหา</button>
+          <div
+            class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden glass-card shimmer-card"
+          >
+            <span
+              class="input-group-text bg-transparent border-0 ps-3 text-accent"
+              ><i class="bi bi-search"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control border-0 bg-transparent text-body ps-2"
+              id="courseSearchInput"
+              placeholder="ค้นหารายวิชา เช่น Python, AI, Security, Web..."
+            />
+            <button
+              class="btn btn-accent px-4 fw-semibold"
+              type="button"
+              id="clearCourseSearch"
+            >
+              ล้างค้นหา
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Course Category Filter Tabs -->
-      <div class="d-flex justify-content-center mb-4 flex-wrap gap-2 reveal-init">
+      <div
+        class="d-flex justify-content-center mb-4 flex-wrap gap-2 reveal-init"
+      >
         {% for cat in course_categories %}
-        <button class="btn rounded-pill px-4 py-2 fw-medium course-filter-btn {% if forloop.first %}btn-accent shadow{% else %}btn-outline-secondary{% endif %}" data-target="{{ cat.id }}">
+        <button
+          class="btn rounded-pill px-4 py-2 fw-medium course-filter-btn {% if forloop.first %}btn-accent shadow{% else %}btn-outline-secondary{% endif %}"
+          data-target="{{ cat.id }}"
+        >
           {{ cat.name }}
         </button>
         {% endfor %}
@@ -320,35 +663,78 @@
 
       <!-- Course Content Display -->
       {% for cat in course_categories %}
-      <div class="course-category-panel {% if forloop.first %}active{% endif %}" id="cat-{{ cat.id }}">
-        <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded-4 glass-card border-0">
+      <div
+        class="course-category-panel {% if forloop.first %}active{% endif %}"
+        id="cat-{{ cat.id }}"
+      >
+        <div
+          class="d-flex align-items-center gap-3 mb-3 p-3 rounded-4 glass-card border-0"
+        >
           <i class="bi bi-pc-display-horizontal text-accent fs-3"></i>
           <div>
             <h3 class="h5 fw-bold text-body mb-0">{{ cat.name }}</h3>
             <p class="text-muted small mb-0">{{ cat.desc }}</p>
           </div>
-          <span class="badge bg-accent-subtle text-accent rounded-pill px-3 py-1.5 ms-auto font-monospace text-nowrap">{{ cat.badge }}</span>
+          <span
+            class="badge bg-accent-subtle text-accent rounded-pill px-3 py-1.5 ms-auto font-monospace text-nowrap"
+            >{{ cat.badge }}</span
+          >
         </div>
 
         <div class="row g-4 course-cards-grid">
           {% for course in cat.courses %}
-          <div class="col-12 col-md-6 col-xl-3 course-card-item" data-title="{{ course.title }}" data-code="{{ course.code }}" data-desc="{{ course.desc }}">
-            <div class="card h-100 shadow-sm hover-elevate border-0 rounded-4 glass-card overflow-hidden">
+          <div
+            class="col-12 col-md-6 col-xl-3 course-card-item"
+            data-title="{{ course.title }}"
+            data-code="{{ course.code }}"
+            data-desc="{{ course.desc }}"
+          >
+            <div
+              class="card h-100 shadow-sm hover-elevate border-0 rounded-4 glass-card overflow-hidden"
+            >
               <div class="card-body p-4 d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                  <div class="rounded-3 d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="width:46px;height:46px; background: var(--gradient-primary);">
+                  <div
+                    class="rounded-3 d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm"
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      background: var(--gradient-primary);
+                    "
+                  >
                     <i class="bi {{ course.icon }} fs-4"></i>
                   </div>
                   <div>
-                    <span class="badge bg-secondary-subtle text-body small font-monospace mb-1">{{ course.code }}</span>
-                    <h4 class="card-title fw-bold text-body mb-0 h6" style="font-size:1.05rem;line-height:1.4">{{ course.title }}</h4>
+                    <span
+                      class="badge bg-secondary-subtle text-body small font-monospace mb-1"
+                      >{{ course.code }}</span
+                    >
+                    <h4
+                      class="card-title fw-bold text-body mb-0 h6"
+                      style="font-size: 1.05rem; line-height: 1.4"
+                    >
+                      {{ course.title }}
+                    </h4>
                   </div>
                 </div>
-                <p class="card-text text-muted small mb-4 flex-grow-1" style="line-height:1.6">{{ course.desc }}</p>
-                <div class="mt-auto d-flex align-items-center justify-content-between pt-2 border-top">
-                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1 fw-medium small">{{ course.credits }}</span>
+                <p
+                  class="card-text text-muted small mb-4 flex-grow-1"
+                  style="line-height: 1.6"
+                >
+                  {{ course.desc }}
+                </p>
+                <div
+                  class="mt-auto d-flex align-items-center justify-content-between pt-2 border-top"
+                >
+                  <span
+                    class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1 fw-medium small"
+                    >{{ course.credits }}</span
+                  >
                   {% if course.has_lab %}
-                  <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2.5 py-1 fw-medium small"><i class="bi bi-pc-display me-1"></i>มีห้องแล็บ</span>
+                  <span
+                    class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2.5 py-1 fw-medium small"
+                    ><i class="bi bi-pc-display me-1"></i>มีห้องแล็บ</span
+                  >
                   {% endif %}
                 </div>
               </div>
@@ -366,15 +752,19 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">แผนการศึกษาและตารางวิชาเรียน</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
-          ตัวอย่างตารางวิชาหลักในการเรียนในแต่ละชั้นปีการศึกษา (หน่วยกิตรวมไม่น้อยกว่า 133 หน่วยกิต)
+        <p class="text-muted mx-auto" style="max-width: 600px">
+          ตัวอย่างตารางวิชาหลักในการเรียนในแต่ละชั้นปีการศึกษา
+          (หน่วยกิตรวมไม่น้อยกว่า 133 หน่วยกิต)
         </p>
       </div>
 
       <!-- Schedule Year Tabs -->
       <div class="d-flex justify-content-center mb-4 gap-2 reveal-init">
         {% for yr in schedule_years %}
-        <button class="btn rounded-pill px-4 py-2 fw-medium year-tab-btn {% if yr.active %}btn-accent shadow{% else %}btn-outline-secondary{% endif %}" data-year="{{ forloop.counter0 }}">
+        <button
+          class="btn rounded-pill px-4 py-2 fw-medium year-tab-btn {% if yr.active %}btn-accent shadow{% else %}btn-outline-secondary{% endif %}"
+          data-year="{{ forloop.counter0 }}"
+        >
           {{ yr.year_label }}
         </button>
         {% endfor %}
@@ -383,29 +773,49 @@
       <!-- Schedule Content Card -->
       <div class="card border-0 shadow-sm rounded-5 p-4 glass-card reveal-init">
         {% for yr in schedule_years %}
-        <div class="year-panel {% if yr.active %}active{% endif %}" id="year-panel-{{ forloop.counter0 }}">
+        <div
+          class="year-panel {% if yr.active %}active{% endif %}"
+          id="year-panel-{{ forloop.counter0 }}"
+        >
           <div class="row g-4">
             {% for sem in yr.semesters %}
             <div class="col-12 col-xl-6">
               <div class="p-3 rounded-4 border bg-body">
-                <h3 class="fw-bold text-accent mb-3 h6 d-flex align-items-center" style="border-left:4px solid #d946ef;padding-left:10px">
-                  <i class="bi bi-clock-fill me-2 text-accent"></i>{{ sem.title }}
+                <h3
+                  class="fw-bold text-accent mb-3 h6 d-flex align-items-center"
+                  style="border-left: 4px solid #d946ef; padding-left: 10px"
+                >
+                  <i class="bi bi-clock-fill me-2 text-accent"></i>{{ sem.title
+                  }}
                 </h3>
                 <div class="table-responsive">
-                  <table class="table table-hover table-bordered mb-0 align-middle">
+                  <table
+                    class="table table-hover table-bordered mb-0 align-middle"
+                  >
                     <thead>
                       <tr class="table-success text-center">
-                        <th style="width:80px">รหัสวิชา</th>
+                        <th style="width: 80px">รหัสวิชา</th>
                         <th>ชื่อรายวิชาเรียน</th>
-                        <th style="width:140px">หมวดหมู่รายวิชา</th>
+                        <th style="width: 140px">หมวดหมู่รายวิชา</th>
                       </tr>
                     </thead>
                     <tbody>
                       {% for c in sem.courses %}
                       <tr>
-                        <td class="text-center font-monospace small fw-bold text-accent">{{ c.code }}</td>
-                        <td class="text-start text-body font-normal">{{ c.name }}</td>
-                        <td class="text-center"><span class="badge bg-secondary-subtle text-body small">{{ c.cat }}</span></td>
+                        <td
+                          class="text-center font-monospace small fw-bold text-accent"
+                        >
+                          {{ c.code }}
+                        </td>
+                        <td class="text-start text-body font-normal">
+                          {{ c.name }}
+                        </td>
+                        <td class="text-center">
+                          <span
+                            class="badge bg-secondary-subtle text-body small"
+                            >{{ c.cat }}</span
+                          >
+                        </td>
                       </tr>
                       {% endfor %}
                     </tbody>
@@ -422,39 +832,70 @@
   </section>
 
   <!-- Lecturers Section -->
-  <section id="lecturers" class="section py-5 bg-body-tertiary border-top border-bottom">
+  <section
+    id="lecturers"
+    class="section py-5 bg-body-tertiary border-top border-bottom"
+  >
     <div class="container">
       <div class="text-center mb-5 reveal-init">
-        <div class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 fw-semibold mb-3"><i class="bi bi-person-badge-fill me-1"></i> คณาจารย์ผู้ทรงคุณวุฒิและเชี่ยวชาญเฉพาะทาง</div>
+        <div
+          class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 fw-semibold mb-3"
+        >
+          <i class="bi bi-person-badge-fill me-1"></i>
+          คณาจารย์ผู้ทรงคุณวุฒิและเชี่ยวชาญเฉพาะทาง
+        </div>
         <h2 class="fw-bold text-body mb-2">อาจารย์ประจำหลักสูตร</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
-          คณาจารย์ผู้รับผิดชอบหลักสูตรและคณาจารย์ประจำสาขาวิชา ร่วมขับเคลื่อนการจัดการเรียนการสอนและนวัตกรรมใหม่
+        <p class="text-muted mx-auto" style="max-width: 600px">
+          คณาจารย์ผู้รับผิดชอบหลักสูตรและคณาจารย์ประจำสาขาวิชา
+          ร่วมขับเคลื่อนการจัดการเรียนการสอนและนวัตกรรมใหม่
         </p>
       </div>
 
       <div class="row g-4 justify-content-center">
         {% for lec in lecturers %}
         <div class="col-12 col-md-6 col-lg-4 reveal-init">
-          <div class="card h-100 shadow-sm border-0 rounded-5 glass-card lecturer-card hover-elevate">
-            <div class="card-body p-4 text-center d-flex flex-column align-items-center">
+          <div
+            class="card h-100 shadow-sm border-0 rounded-5 glass-card lecturer-card hover-elevate"
+          >
+            <div
+              class="card-body p-4 text-center d-flex flex-column align-items-center"
+            >
               <div class="position-relative mb-4">
                 <div class="avatar-circle rounded-circle shadow-md p-1 bg-body">
-                  <img src="{% static lec.img %}" alt="{{ lec.name }}" width="90" height="90" class="rounded-circle object-fit-cover" />
+                  <img
+                    src="{% static lec.img %}"
+                    alt="{{ lec.name }}"
+                    width="90"
+                    height="90"
+                    class="rounded-circle object-fit-cover"
+                  />
                 </div>
-                <div class="avatar-icon-badge position-absolute bottom-0 end-0 bg-accent text-white rounded-circle p-1.5 shadow-sm">
+                <div
+                  class="avatar-icon-badge position-absolute bottom-0 end-0 bg-accent text-white rounded-circle p-1.5 shadow-sm"
+                >
                   <i class="bi {{ lec.icon }}"></i>
                 </div>
               </div>
 
-              <h3 class="fw-bold mb-1 text-body h5" style="font-size:1.2rem">{{ lec.name }}</h3>
-              <p class="text-muted small mb-2 font-monospace">{{ lec.en_name }}</p>
+              <h3 class="fw-bold mb-1 text-body h5" style="font-size: 1.2rem">
+                {{ lec.name }}
+              </h3>
+              <p class="text-muted small mb-2 font-monospace">
+                {{ lec.en_name }}
+              </p>
 
               <div class="mb-3 d-flex flex-column gap-1 w-100">
-                <span class="badge rounded-pill bg-body-tertiary text-body border border-secondary-subtle px-3 py-1 font-monospace mx-auto" style="font-size:0.8rem">
+                <span
+                  class="badge rounded-pill bg-body-tertiary text-body border border-secondary-subtle px-3 py-1 font-monospace mx-auto"
+                  style="font-size: 0.8rem"
+                >
                   {{ lec.role }}
                 </span>
                 {% if lec.is_head %}
-                <span class="badge rounded-pill text-white px-3 py-1 fw-bold mx-auto shadow-sm" style="background: var(--gradient-primary); font-size:0.8rem">
+                <span
+                  class="badge rounded-pill text-white px-3 py-1 fw-bold mx-auto shadow-sm"
+                  style="background: var(--gradient-primary); font-size: 0.8rem"
+                >
                   {{ lec.head_title }}
                 </span>
                 {% endif %}
@@ -462,25 +903,30 @@
 
               <div class="mt-2 text-center flex-grow-1">
                 <small class="d-block text-muted mb-1">ความเชี่ยวชาญ</small>
-                <span class="badge bg-accent-subtle text-accent px-3 py-1.5 mb-4" style="font-size:0.85rem">{{ lec.specialty }}</span>
+                <span
+                  class="badge bg-accent-subtle text-accent px-3 py-1.5 mb-4"
+                  style="font-size: 0.85rem"
+                  >{{ lec.specialty }}</span
+                >
               </div>
 
-              <button class="btn btn-outline-accent btn-sm px-4 mt-auto rounded-pill view-lecturer-btn" 
-                      data-id="{{ lec.id }}" 
-                      data-name="{{ lec.name }}" 
-                      data-en="{{ lec.en_name }}"
-                      data-role="{{ lec.role }}"
-                      data-specialty="{{ lec.specialty }}" 
-                      data-img="{% static lec.img %}"
-                      data-pubtitle="{{ lec.publication.title }}"
-                      data-pubauthors="{{ lec.publication.authors }}"
-                      data-pubjournal="{{ lec.publication.journal }}">
+              <button
+                class="btn btn-outline-accent btn-sm px-4 mt-auto rounded-pill view-lecturer-btn"
+                data-id="{{ lec.id }}"
+                data-name="{{ lec.name }}"
+                data-en="{{ lec.en_name }}"
+                data-role="{{ lec.role }}"
+                data-specialty="{{ lec.specialty }}"
+                data-img="{% static lec.img %}"
+                data-pubtitle="{{ lec.publication.title }}"
+                data-pubauthors="{{ lec.publication.authors }}"
+                data-pubjournal="{{ lec.publication.journal }}"
+              >
                 <i class="bi bi-file-person me-1"></i> ดูประวัติและผลงานวิชาการ
               </button>
-              {{ lec.education_history|json_script:lec.id }}
-              {% with course_id=lec.id|add:"_courses" %}
-              {{ lec.courses_taught|json_script:course_id }}
-              {% endwith %}
+              {{ lec.education_history|json_script:lec.id }} {% with
+              course_id=lec.id|add:"_courses" %} {{
+              lec.courses_taught|json_script:course_id }} {% endwith %}
             </div>
           </div>
         </div>
@@ -493,40 +939,94 @@
   <section id="showcases" class="section py-5">
     <div class="container">
       <div class="text-center mb-5 reveal-init">
-        <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"><i class="bi bi-star-fill me-1"></i> ผลงานและกิจกรรมโดดเด่น</span>
+        <span
+          class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"
+          ><i class="bi bi-star-fill me-1"></i> ผลงานและกิจกรรมโดดเด่น</span
+        >
         <h2 class="fw-bold text-body mb-2">นวัตกรรมและกิจกรรมนักศึกษา</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width: 600px">
           สัมผัสบรรยากาศการเรียนและผลงานนวัตกรรมเด่นของนักศึกษาสาขาวิชาวิทยาการคอมพิวเตอร์
         </p>
       </div>
 
       <!-- Bootstrap Carousel Component -->
-      <div id="showcaseCarousel" class="carousel slide rounded-5 shadow-lg overflow-hidden glass-card shimmer-card reveal-init" data-bs-ride="carousel">
+      <div
+        id="showcaseCarousel"
+        class="carousel slide rounded-5 shadow-lg overflow-hidden glass-card shimmer-card reveal-init"
+        data-bs-ride="carousel"
+      >
         <div class="carousel-indicators">
           {% for sc in showcases %}
-          <button type="button" data-bs-target="#showcaseCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+          <button
+            type="button"
+            data-bs-target="#showcaseCarousel"
+            data-bs-slide-to="{{ forloop.counter0 }}"
+            class="{% if forloop.first %}active{% endif %}"
+            aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+          ></button>
           {% endfor %}
         </div>
         <div class="carousel-inner">
           {% for sc in showcases %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %} p-5 text-center" style="min-height:300px; background: linear-gradient(135deg, rgba(217,70,239,0.08) 0%, rgba(225,29,72,0.05) 100%);">
+          <div
+            class="carousel-item {% if forloop.first %}active{% endif %} p-5 text-center"
+            style="
+              min-height: 300px;
+              background: linear-gradient(
+                135deg,
+                rgba(217, 70, 239, 0.08) 0%,
+                rgba(225, 29, 72, 0.05) 100%
+              );
+            "
+          >
             <div class="d-flex justify-content-center mb-3">
-              <div class="rounded-circle d-flex align-items-center justify-content-center text-white shadow-md" style="width:64px;height:64px; background: var(--gradient-primary);">
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center text-white shadow-md"
+                style="
+                  width: 64px;
+                  height: 64px;
+                  background: var(--gradient-primary);
+                "
+              >
                 <i class="bi {{ sc.icon }} fs-2"></i>
               </div>
             </div>
-            <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-1 font-monospace mb-2">{{ sc.badge }}</span>
+            <span
+              class="badge rounded-pill bg-accent-subtle text-accent px-3 py-1 font-monospace mb-2"
+              >{{ sc.badge }}</span
+            >
             <h3 class="fw-bold text-body mb-2 h4">{{ sc.title }}</h3>
-            <p class="text-muted mx-auto mb-0" style="max-width:650px; font-size:1.08rem; line-height:1.7">{{ sc.desc }}</p>
+            <p
+              class="text-muted mx-auto mb-0"
+              style="max-width: 650px; font-size: 1.08rem; line-height: 1.7"
+            >
+              {{ sc.desc }}
+            </p>
           </div>
           {% endfor %}
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#showcaseCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#showcaseCarousel"
+          data-bs-slide="prev"
+        >
+          <span
+            class="carousel-control-prev-icon bg-dark rounded-circle p-3"
+            aria-hidden="true"
+          ></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#showcaseCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#showcaseCarousel"
+          data-bs-slide="next"
+        >
+          <span
+            class="carousel-control-next-icon bg-dark rounded-circle p-3"
+            aria-hidden="true"
+          ></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
@@ -534,13 +1034,23 @@
   </section>
 
   <!-- Interactive Career Roadmap & Student Attraction Section -->
-  <section id="careers" class="section py-5 bg-body-tertiary border-top border-bottom">
+  <section
+    id="careers"
+    class="section py-5 bg-body-tertiary border-top border-bottom"
+  >
     <div class="container">
       <div class="text-center mb-5 reveal-init">
-        <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"><i class="bi bi-rocket-takeoff-fill me-1"></i> วางแผนอนาคตไอทีระดับมืออาชีพ</span>
-        <h2 class="fw-bold text-body mb-2">เส้นทางอาชีพและประมาณการเงินเดือน (Career Roadmap)</h2>
-        <p class="text-muted mx-auto" style="max-width:650px">
-          บัณฑิตสาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ พร้อมก้าวสู่อุตสาหกรรมเทคโนโลยีด้วยทักษะรอบด้าน
+        <span
+          class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"
+          ><i class="bi bi-rocket-takeoff-fill me-1"></i>
+          วางแผนอนาคตไอทีระดับมืออาชีพ</span
+        >
+        <h2 class="fw-bold text-body mb-2">
+          เส้นทางอาชีพและประมาณการเงินเดือน (Career Roadmap)
+        </h2>
+        <p class="text-muted mx-auto" style="max-width: 650px">
+          บัณฑิตสาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ
+          พร้อมก้าวสู่อุตสาหกรรมเทคโนโลยีด้วยทักษะรอบด้าน
         </p>
       </div>
 
@@ -548,34 +1058,58 @@
       <div class="row g-4 mb-5">
         {% for car in career_roadmap %}
         <div class="col-12 col-md-6 col-lg-3 reveal-init">
-          <div class="card h-100 shadow-sm border-0 rounded-4 glass-card p-4 hover-elevate border-top border-4" style="border-top-color: {{ car.color }} !important;">
+          <div
+            class="card h-100 shadow-sm border-0 rounded-4 glass-card p-4 hover-elevate border-top border-4"
+            style="border-top-color: {{ car.color }} !important;"
+          >
             <div class="d-flex align-items-center gap-3 mb-3">
-              <div class="rounded-3 p-2.5 text-white shadow-sm" style="background-color: {{ car.color }};">
+              <div
+                class="rounded-3 p-2.5 text-white shadow-sm"
+                style="background-color: {{ car.color }};"
+              >
                 <i class="bi {{ car.icon }} fs-4"></i>
               </div>
               <div>
-                <h3 class="fw-bold text-body mb-0 h6" style="font-size:1.1rem">{{ car.title }}</h3>
-                <span class="badge bg-success-subtle text-success small font-monospace mt-1">{{ car.salary }}</span>
+                <h3 class="fw-bold text-body mb-0 h6" style="font-size: 1.1rem">
+                  {{ car.title }}
+                </h3>
+                <span
+                  class="badge bg-success-subtle text-success small font-monospace mt-1"
+                  >{{ car.salary }}</span
+                >
               </div>
             </div>
-            <p class="text-muted small mb-3" style="line-height:1.6">{{ car.desc }}</p>
+            <p class="text-muted small mb-3" style="line-height: 1.6">
+              {{ car.desc }}
+            </p>
 
             <!-- Skill Demand Progress Meter -->
             <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-center small mb-1">
+              <div
+                class="d-flex justify-content-between align-items-center small mb-1"
+              >
                 <span class="text-muted">อัตราความต้องการในตลาดงาน</span>
-                <strong class="text-accent font-monospace">{{ car.demand_pct }}%</strong>
+                <strong class="text-accent font-monospace"
+                  >{{ car.demand_pct }}%</strong
+                >
               </div>
               <div class="progress-skill-bar">
-                <div class="progress-skill-fill" data-progress="{{ car.demand_pct }}"></div>
+                <div
+                  class="progress-skill-fill"
+                  data-progress="{{ car.demand_pct }}"
+                ></div>
               </div>
             </div>
 
             <div class="mt-auto">
-              <small class="fw-bold text-body d-block mb-2">ทักษะที่ได้เรียนในสาขา:</small>
+              <small class="fw-bold text-body d-block mb-2"
+                >ทักษะที่ได้เรียนในสาขา:</small
+              >
               <div class="d-flex flex-wrap gap-1">
                 {% for sk in car.skills %}
-                <span class="badge bg-body-tertiary text-body border small">{{ sk }}</span>
+                <span class="badge bg-body-tertiary text-body border small"
+                  >{{ sk }}</span
+                >
                 {% endfor %}
               </div>
             </div>
@@ -588,53 +1122,126 @@
       <div class="row align-items-stretch g-4">
         <!-- CS Career Quiz (8 Comprehensive Tech Tracks) -->
         <div class="col-12 col-lg-7 reveal-init d-flex flex-column">
-          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card h-100 d-flex flex-column justify-content-between">
+          <div
+            class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card h-100 d-flex flex-column justify-content-between"
+          >
             <div>
               <h3 class="fw-bold text-body mb-2 h4 d-flex align-items-center">
-                <i class="bi bi-compass-fill text-accent me-2"></i>ค้นหาตัวตน: คุณเหมาะกับสายคอมพิวเตอร์ด้านไหน?
+                <i class="bi bi-compass-fill text-accent me-2"></i>ค้นหาตัวตน:
+                คุณเหมาะกับสายคอมพิวเตอร์ด้านไหน?
               </h3>
-              <p class="text-muted small mb-4">ตอบแบบทดสอบสั้น 3 ข้อเพื่อวิเคราะห์สายอาชีพเทคโนโลยีไอทีที่ตรงกับพรสวรรค์และความสนใจของคุณที่สุด (8 สายงานยอดนิยม)</p>
+              <p class="text-muted small mb-4">
+                ตอบแบบทดสอบสั้น 3
+                ข้อเพื่อวิเคราะห์สายอาชีพเทคโนโลยีไอทีที่ตรงกับพรสวรรค์และความสนใจของคุณที่สุด
+                (8 สายงานยอดนิยม)
+              </p>
 
               <div id="quizContainer">
                 <div class="mb-3.5">
-                  <label class="form-label fw-bold text-body mb-1.5"><i class="bi bi-lightbulb-fill text-accent me-1.5"></i>1. คุณชอบและมีความสุขกับอะไรมากที่สุดในการทำโปรเจกต์?</label>
+                  <label class="form-label fw-bold text-body mb-1.5"
+                    ><i class="bi bi-lightbulb-fill text-accent me-1.5"></i>1.
+                    คุณชอบและมีความสุขกับอะไรมากที่สุดในการทำโปรเจกต์?</label
+                  >
                   <select class="form-select rounded-3 py-2.5" id="quizQ1">
-                    <option value="dev">💻 เขียนโปรแกรม สร้างเว็บไซต์ และพัฒนาแอปมือถือ</option>
-                    <option value="ai">🤖 สร้างระบบคิดอัตโนมัติ หุ่นยนต์ และโมเดล AI (AI/LLM)</option>
-                    <option value="data">📊 วิเคราะห์ตัวเลข ค้นพบข้อมูลเชิงลึกใน Big Data</option>
-                    <option value="sec">🛡️ ป้องกันแฮกเกอร์ ดูแลความปลอดภัยไซเบอร์และระบบเครือข่าย</option>
-                    <option value="game">🎮 พัฒนาเกมคอมพิวเตอร์ กราฟิก 3D และสื่ออินเทอร์แอคทีฟ (AR/VR)</option>
-                    <option value="ux">🎨 ดีไซน์หน้าตาแอปพลิเคชัน (UI/UX) และจัดระเบียบการใช้งานเพื่อผู้ใช้</option>
-                    <option value="devops">🚀 วางโครงสร้างระบบคลาวด์และเซิร์ฟเวอร์ (DevOps/SRE)</option>
-                    <option value="pm">📈 บริหารโปรเจกต์ วางกลยุทธ์ไอทีและธุรกิจสตาร์ทอัพ</option>
+                    <option value="dev">
+                      💻 เขียนโปรแกรม สร้างเว็บไซต์ และพัฒนาแอปมือถือ
+                    </option>
+                    <option value="ai">
+                      🤖 สร้างระบบคิดอัตโนมัติ หุ่นยนต์ และโมเดล AI (AI/LLM)
+                    </option>
+                    <option value="data">
+                      📊 วิเคราะห์ตัวเลข ค้นพบข้อมูลเชิงลึกใน Big Data
+                    </option>
+                    <option value="sec">
+                      🛡️ ป้องกันแฮกเกอร์ ดูแลความปลอดภัยไซเบอร์และระบบเครือข่าย
+                    </option>
+                    <option value="game">
+                      🎮 พัฒนาเกมคอมพิวเตอร์ กราฟิก 3D และสื่ออินเทอร์แอคทีฟ
+                      (AR/VR)
+                    </option>
+                    <option value="ux">
+                      🎨 ดีไซน์หน้าตาแอปพลิเคชัน (UI/UX)
+                      และจัดระเบียบการใช้งานเพื่อผู้ใช้
+                    </option>
+                    <option value="devops">
+                      🚀 วางโครงสร้างระบบคลาวด์และเซิร์ฟเวอร์ (DevOps/SRE)
+                    </option>
+                    <option value="pm">
+                      📈 บริหารโปรเจกต์ วางกลยุทธ์ไอทีและธุรกิจสตาร์ทอัพ
+                    </option>
                   </select>
                 </div>
 
                 <div class="mb-3.5">
-                  <label class="form-label fw-bold text-body mb-1.5"><i class="bi bi-tools text-accent me-1.5"></i>2. เครื่องมือ เทคโนโลยี หรือภาษาที่คุณอยากลุยที่สุด?</label>
+                  <label class="form-label fw-bold text-body mb-1.5"
+                    ><i class="bi bi-tools text-accent me-1.5"></i>2. เครื่องมือ
+                    เทคโนโลยี หรือภาษาที่คุณอยากลุยที่สุด?</label
+                  >
                   <select class="form-select rounded-3 py-2.5" id="quizQ2">
-                    <option value="dev">Python, JavaScript/TypeScript, Django, React, Flutter</option>
-                    <option value="ai">PyTorch, TensorFlow, OpenCV, LangChain, Python AI Stack</option>
-                    <option value="data">SQL, Pandas, PowerBI, Tableau, Data Analytics Tools</option>
-                    <option value="sec">Linux, Wireshark, Metasploit, Cisco Networks, Cloud Security</option>
-                    <option value="game">Unity Engine, Unreal Engine, C#, C++, Blender 3D</option>
-                    <option value="ux">Figma, Adobe XD, CSS3/Sass, Tailwind, Wireframing</option>
-                    <option value="devops">Docker, Kubernetes, AWS, Google Cloud, CI/CD</option>
-                    <option value="pm">Agile/Scrum, JIRA, Trello, Product Strategy, Business Analysis</option>
+                    <option value="dev">
+                      Python, JavaScript/TypeScript, Django, React, Flutter
+                    </option>
+                    <option value="ai">
+                      PyTorch, TensorFlow, OpenCV, LangChain, Python AI Stack
+                    </option>
+                    <option value="data">
+                      SQL, Pandas, PowerBI, Tableau, Data Analytics Tools
+                    </option>
+                    <option value="sec">
+                      Linux, Wireshark, Metasploit, Cisco Networks, Cloud
+                      Security
+                    </option>
+                    <option value="game">
+                      Unity Engine, Unreal Engine, C#, C++, Blender 3D
+                    </option>
+                    <option value="ux">
+                      Figma, Adobe XD, CSS3/Sass, Tailwind, Wireframing
+                    </option>
+                    <option value="devops">
+                      Docker, Kubernetes, AWS, Google Cloud, CI/CD
+                    </option>
+                    <option value="pm">
+                      Agile/Scrum, JIRA, Trello, Product Strategy, Business
+                      Analysis
+                    </option>
                   </select>
                 </div>
 
                 <div class="mb-4">
-                  <label class="form-label fw-bold text-body mb-1.5"><i class="bi bi-bullseye text-accent me-1.5"></i>3. เป้าหมายการทำงานในอนาคตของคุณคืออะไร?</label>
+                  <label class="form-label fw-bold text-body mb-1.5"
+                    ><i class="bi bi-bullseye text-accent me-1.5"></i>3.
+                    เป้าหมายการทำงานในอนาคตของคุณคืออะไร?</label
+                  >
                   <select class="form-select rounded-3 py-2.5" id="quizQ3">
-                    <option value="dev">เป็นนักพัฒนาซอฟต์แวร์ / Full-Stack Developer ในบริษัทเทคโนโลยีชั้นนำ</option>
-                    <option value="ai">เป็นวิศวกร AI / Machine Learning สร้างนวัตกรรมเปลี่ยนโลก</option>
-                    <option value="data">เป็น Data Scientist ช่วยองค์กรตัดสินใจด้วยข้อมูลเชิงลึก</option>
-                    <option value="sec">เป็นผู้เชี่ยวชาญ Cybersecurity ปกป้องโครงสร้างพื้นฐานไอที</option>
-                    <option value="game">เป็น Game Developer / 3D Graphics Creator ในสตูดิโอระดับโลก</option>
-                    <option value="ux">เป็น UI/UX Designer สร้างประสบการณ์ดีเยี่ยมให้ผู้ใช้นับล้าน</option>
-                    <option value="devops">เป็น Cloud Architect / DevOps Specialist ดูแลระบบคลาวด์ขนาดใหญ่</option>
-                    <option value="pm">เป็น Product Owner / ผู้ก่อตั้ง Tech Startup สร้างธุรกิจของตัวเอง</option>
+                    <option value="dev">
+                      เป็นนักพัฒนาซอฟต์แวร์ / Full-Stack Developer
+                      ในบริษัทเทคโนโลยีชั้นนำ
+                    </option>
+                    <option value="ai">
+                      เป็นวิศวกร AI / Machine Learning สร้างนวัตกรรมเปลี่ยนโลก
+                    </option>
+                    <option value="data">
+                      เป็น Data Scientist ช่วยองค์กรตัดสินใจด้วยข้อมูลเชิงลึก
+                    </option>
+                    <option value="sec">
+                      เป็นผู้เชี่ยวชาญ Cybersecurity ปกป้องโครงสร้างพื้นฐานไอที
+                    </option>
+                    <option value="game">
+                      เป็น Game Developer / 3D Graphics Creator
+                      ในสตูดิโอระดับโลก
+                    </option>
+                    <option value="ux">
+                      เป็น UI/UX Designer
+                      สร้างประสบการณ์ดีเยี่ยมให้ผู้ใช้นับล้าน
+                    </option>
+                    <option value="devops">
+                      เป็น Cloud Architect / DevOps Specialist
+                      ดูแลระบบคลาวด์ขนาดใหญ่
+                    </option>
+                    <option value="pm">
+                      เป็น Product Owner / ผู้ก่อตั้ง Tech Startup
+                      สร้างธุรกิจของตัวเอง
+                    </option>
                   </select>
                 </div>
               </div>
@@ -642,23 +1249,56 @@
 
             <div>
               <div class="d-flex gap-2 flex-wrap">
-                <button type="button" class="btn btn-accent rounded-pill px-4 py-3 fw-bold shadow-md w-100" id="calcQuizBtn">
-                  <i class="bi bi-magic me-2"></i>วิเคราะห์สายงานและผลลัพธ์ของคุณ
+                <button
+                  type="button"
+                  class="btn btn-accent rounded-pill px-4 py-3 fw-bold shadow-md w-100"
+                  id="calcQuizBtn"
+                >
+                  <i class="bi bi-magic me-2"></i
+                  >วิเคราะห์สายงานและผลลัพธ์ของคุณ
                 </button>
               </div>
 
               <!-- Quiz Result Box -->
-              <div class="mt-4 p-4 rounded-4 bg-success-subtle border border-success-subtle d-none" id="quizResultBox">
+              <div
+                class="mt-4 p-4 rounded-4 bg-success-subtle border border-success-subtle d-none"
+                id="quizResultBox"
+              >
                 <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                  <span class="badge bg-success text-white rounded-pill px-3 py-1 font-monospace" style="font-size:0.82rem">ผลการวิเคราะห์สายงาน</span>
-                  <span class="badge bg-white text-success rounded-pill px-3 py-1 font-monospace shadow-sm" id="quizSalaryBadge" style="font-size:0.82rem"></span>
+                  <span
+                    class="badge bg-success text-white rounded-pill px-3 py-1 font-monospace"
+                    style="font-size: 0.82rem"
+                    >ผลการวิเคราะห์สายงาน</span
+                  >
+                  <span
+                    class="badge bg-white text-success rounded-pill px-3 py-1 font-monospace shadow-sm"
+                    id="quizSalaryBadge"
+                    style="font-size: 0.82rem"
+                  ></span>
                 </div>
-                <h4 class="fw-bold text-success mb-2 h5" id="quizResultTitle"></h4>
-                <p class="mb-3 text-body small" id="quizResultDesc" style="line-height:1.65"></p>
-                
-                <div class="p-3 rounded-3 bg-white shadow-sm border border-success-subtle">
-                  <small class="fw-bold text-dark d-block mb-2"><i class="bi bi-journal-bookmark-fill me-1.5 text-success"></i>รายวิชาเด่นในหลักสูตร SSKRU CS ที่จะปูทางสายนี้:</small>
-                  <div class="d-flex flex-wrap gap-1.5" id="quizSubjectsGrid"></div>
+                <h4
+                  class="fw-bold text-success mb-2 h5"
+                  id="quizResultTitle"
+                ></h4>
+                <p
+                  class="mb-3 text-body small"
+                  id="quizResultDesc"
+                  style="line-height: 1.65"
+                ></p>
+
+                <div
+                  class="p-3 rounded-3 bg-white shadow-sm border border-success-subtle"
+                >
+                  <small class="fw-bold text-dark d-block mb-2"
+                    ><i
+                      class="bi bi-journal-bookmark-fill me-1.5 text-success"
+                    ></i
+                    >รายวิชาเด่นในหลักสูตร SSKRU CS ที่จะปูทางสายนี้:</small
+                  >
+                  <div
+                    class="d-flex flex-wrap gap-1.5"
+                    id="quizSubjectsGrid"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -666,43 +1306,102 @@
         </div>
 
         <!-- Admission Fee Estimator -->
-        <div class="col-12 col-lg-5 reveal-init reveal-delay-2 d-flex flex-column">
-          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card h-100 d-flex flex-column justify-content-between" style="background: linear-gradient(135deg, rgba(217,70,239,0.08) 0%, rgba(245,158,11,0.05) 100%);">
+        <div
+          class="col-12 col-lg-5 reveal-init reveal-delay-2 d-flex flex-column"
+        >
+          <div
+            class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card h-100 d-flex flex-column justify-content-between"
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(217, 70, 239, 0.08) 0%,
+                rgba(245, 158, 11, 0.05) 100%
+              );
+            "
+          >
             <div>
               <h3 class="fw-bold text-body mb-2 h4 d-flex align-items-center">
-                <i class="bi bi-calculator-fill text-accent me-2"></i>ประมาณการค่าใช้จ่ายการเรียน
+                <i class="bi bi-calculator-fill text-accent me-2"></i
+                >ประมาณการค่าใช้จ่ายการเรียน
               </h3>
-              <p class="text-muted small mb-4">ค่าธรรมเนียมการศึกษาของ มรภ.ศรีสะเกษ เป็นมิตร ชัดเจน มีทุนการศึกษาและ กยศ. รองรับ</p>
+              <p class="text-muted small mb-4">
+                ค่าธรรมเนียมการศึกษาของ มรภ.ศรีสะเกษ เป็นมิตร ชัดเจน
+                มีทุนการศึกษาและ กยศ. รองรับ
+              </p>
 
-              <ul class="list-group list-group-flush mb-4 rounded-4 overflow-hidden shadow-sm border">
-                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+              <ul
+                class="list-group list-group-flush mb-4 rounded-4 overflow-hidden shadow-sm border"
+              >
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center py-3"
+                >
                   <div>
-                    <span class="fw-bold text-body d-block"><i class="bi bi-star-fill text-accent me-1.5"></i>ปี 1 เทอมแรกเข้า (เทอม 1)</span>
-                    <small class="text-muted" style="font-size:0.8rem">รวมค่าแรกเข้าและขึ้นทะเบียน</small>
+                    <span class="fw-bold text-body d-block"
+                      ><i class="bi bi-star-fill text-accent me-1.5"></i>ปี 1
+                      เทอมแรกเข้า (เทอม 1)</span
+                    >
+                    <small class="text-muted" style="font-size: 0.8rem"
+                      >รวมค่าแรกเข้าและขึ้นทะเบียน</small
+                    >
                   </div>
-                  <strong class="text-accent font-monospace fs-6 text-nowrap ms-2">11,000 บาท</strong>
+                  <strong
+                    class="text-accent font-monospace fs-6 text-nowrap ms-2"
+                    >11,000 บาท</strong
+                  >
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center py-3"
+                >
                   <div>
-                    <span class="fw-bold text-body d-block"><i class="bi bi-calendar-check-fill text-primary me-1.5"></i>เทอมถัดไปทุกชั้นปี (เทอม 2 - ปี 4)</span>
-                    <small class="text-muted" style="font-size:0.8rem">ค่าธรรมเนียมการศึกษาปกติทุกเทอม</small>
+                    <span class="fw-bold text-body d-block"
+                      ><i
+                        class="bi bi-calendar-check-fill text-primary me-1.5"
+                      ></i
+                      >เทอมถัดไปทุกชั้นปี (เทอม 2 - ปี 4)</span
+                    >
+                    <small class="text-muted" style="font-size: 0.8rem"
+                      >ค่าธรรมเนียมการศึกษาปกติทุกเทอม</small
+                    >
                   </div>
-                  <strong class="text-primary font-monospace fs-6 text-nowrap ms-2">9,000 บาท/เทอม</strong>
+                  <strong
+                    class="text-primary font-monospace fs-6 text-nowrap ms-2"
+                    >9,000 บาท/เทอม</strong
+                  >
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center py-2.5">
-                  <span class="small"><i class="bi bi-hourglass-split text-accent me-1.5"></i>ระยะเวลาเรียนตลอดหลักสูตร</span>
-                  <strong class="text-body font-monospace small text-nowrap">4 ปี (8 ภาคเรียน)</strong>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center py-2.5"
+                >
+                  <span class="small"
+                    ><i class="bi bi-hourglass-split text-accent me-1.5"></i
+                    >ระยะเวลาเรียนตลอดหลักสูตร</span
+                  >
+                  <strong class="text-body font-monospace small text-nowrap"
+                    >4 ปี (8 ภาคเรียน)</strong
+                  >
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center py-2.5">
-                  <span class="small"><i class="bi bi-check-circle-fill text-success me-1.5"></i>สิทธิประโยชน์ กยศ. / กรอ.</span>
-                  <span class="badge bg-success text-white">กู้เรียนได้ 100%</span>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center py-2.5"
+                >
+                  <span class="small"
+                    ><i class="bi bi-check-circle-fill text-success me-1.5"></i
+                    >สิทธิประโยชน์ กยศ. / กรอ.</span
+                  >
+                  <span class="badge bg-success text-white"
+                    >กู้เรียนได้ 100%</span
+                  >
                 </li>
               </ul>
             </div>
 
             <div>
-              <a href="{{ contact_info.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent rounded-pill py-3 text-center fw-bold shadow-md w-100">
-                <i class="bi bi-mortarboard-fill me-2"></i>ตรวจสอบโควตาและสมัครเลย
+              <a
+                href="{{ contact_info.apply_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-accent rounded-pill py-3 text-center fw-bold shadow-md w-100"
+              >
+                <i class="bi bi-mortarboard-fill me-2"></i
+                >ตรวจสอบโควตาและสมัครเลย
               </a>
             </div>
           </div>
@@ -716,8 +1415,9 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">ดาวน์โหลดเอกสารสาขาวิชาฯ</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
-          รวบรวมเอกสารวิชาการ เอกสารแผนประชาสัมพันธ์แนะนำการขึ้นทะเบียน และข้อมูลสำคัญต่าง ๆ เพื่อสนับสนุนนักศึกษา
+        <p class="text-muted mx-auto" style="max-width: 600px">
+          รวบรวมเอกสารวิชาการ เอกสารแผนประชาสัมพันธ์แนะนำการขึ้นทะเบียน
+          และข้อมูลสำคัญต่าง ๆ เพื่อสนับสนุนนักศึกษา
         </p>
       </div>
 
@@ -725,17 +1425,38 @@
         <div class="col-12 col-lg-8 offset-lg-2 reveal-init">
           <div class="accordion" id="faqAccordion">
             {% for doc in downloads %}
-            <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden glass-card">
+            <div
+              class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden glass-card"
+            >
               <h3 class="accordion-header">
-                <button class="accordion-button fw-bold ps-4 {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#acc-{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
-                  <i class="bi bi-file-earmark-pdf-fill me-3 text-accent fs-4"></i>
-                  <span style="font-size:1rem" class="text-body">{{ doc.title }}</span>
+                <button
+                  class="accordion-button fw-bold ps-4 {% if not forloop.first %}collapsed{% endif %}"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#acc-{{ forloop.counter }}"
+                  aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                >
+                  <i
+                    class="bi bi-file-earmark-pdf-fill me-3 text-accent fs-4"
+                  ></i>
+                  <span style="font-size: 1rem" class="text-body"
+                    >{{ doc.title }}</span
+                  >
                 </button>
               </h3>
-              <div id="acc-{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#faqAccordion">
+              <div
+                id="acc-{{ forloop.counter }}"
+                class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                data-bs-parent="#faqAccordion"
+              >
                 <div class="accordion-body bg-body p-4">
                   <p class="text-muted small mb-3">{{ doc.desc }}</p>
-                  <a href="{{ doc.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm rounded-pill px-4 py-2">
+                  <a
+                    href="{{ doc.link }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-accent btn-sm rounded-pill px-4 py-2"
+                  >
                     <i class="bi bi-download me-2"></i>{{ doc.btn_text }}
                   </a>
                 </div>
@@ -752,8 +1473,10 @@
   <section class="section py-5 bg-body-tertiary border-top border-bottom">
     <div class="container">
       <div class="text-center mb-5 reveal-init">
-        <h2 class="fw-bold text-body mb-2">รายงานความสำเร็จและคุณภาพหลักสูตร</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <h2 class="fw-bold text-body mb-2">
+          รายงานความสำเร็จและคุณภาพหลักสูตร
+        </h2>
+        <p class="text-muted mx-auto" style="max-width: 600px">
           เอกสารสรุปผลการประเมินคุณภาพการศึกษาระดับหลักสูตรตามมาตรฐานและการสร้างคุณค่าระดับสากล
         </p>
       </div>
@@ -761,22 +1484,44 @@
       <div class="row g-4">
         {% for rep in reports %}
         <div class="col-12 col-lg-6 reveal-init">
-          <div class="report-header-card p-4 p-md-5 rounded-5 text-white shadow-lg h-100 d-flex flex-column justify-content-between position-relative overflow-hidden" style="background: {{ rep.bg_gradient }};">
+          <div
+            class="report-header-card p-4 p-md-5 rounded-5 text-white shadow-lg h-100 d-flex flex-column justify-content-between position-relative overflow-hidden"
+            style="background: {{ rep.bg_gradient }};"
+          >
             <div>
-              <div class="badge rounded-pill bg-white text-dark font-monospace px-3 py-1.5 fw-bold mb-3 d-inline-block shadow-sm">
+              <div
+                class="badge rounded-pill bg-white text-dark font-monospace px-3 py-1.5 fw-bold mb-3 d-inline-block shadow-sm"
+              >
                 {{ rep.badge }}
               </div>
               <h3 class="fw-bold text-white mb-2 h4">{{ rep.title }}</h3>
-              <p class="text-white-50 mb-3" style="font-size:1.05rem;line-height:1.6">{{ rep.subtitle }}</p>
-              <div class="small text-white-50 font-monospace mb-4">{{ rep.meta }}</div>
+              <p
+                class="text-white-50 mb-3"
+                style="font-size: 1.05rem; line-height: 1.6"
+              >
+                {{ rep.subtitle }}
+              </p>
+              <div class="small text-white-50 font-monospace mb-4">
+                {{ rep.meta }}
+              </div>
             </div>
 
             <div class="mt-4 d-flex flex-wrap gap-2">
-              <a class="btn btn-light rounded-pill px-4 fw-bold btn-sm py-2" href="{{ rep.btn_link }}" target="_blank" rel="noopener noreferrer">
+              <a
+                class="btn btn-light rounded-pill px-4 fw-bold btn-sm py-2"
+                href="{{ rep.btn_link }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {{ rep.btn_text }} <i class="bi bi-arrow-right ms-1"></i>
               </a>
               {% if rep.extra_btn_link %}
-              <a class="btn btn-outline-light rounded-pill px-4 fw-bold btn-sm py-2" href="{{ rep.extra_btn_link }}" target="_blank" rel="noopener noreferrer">
+              <a
+                class="btn btn-outline-light rounded-pill px-4 fw-bold btn-sm py-2"
+                href="{{ rep.extra_btn_link }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i class="bi bi-globe me-1"></i> {{ rep.extra_btn_text }}
               </a>
               {% endif %}
@@ -793,56 +1538,100 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">ช่องทางการติดต่อเรา</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
-          มีข้อสงสัยเกี่ยวกับหลักสูตร โควตาการรับสมัคร หรือสอบถามรายละเอียดเพิ่มเติม ได้ตลอดเวลา
+        <p class="text-muted mx-auto" style="max-width: 600px">
+          มีข้อสงสัยเกี่ยวกับหลักสูตร โควตาการรับสมัคร
+          หรือสอบถามรายละเอียดเพิ่มเติม ได้ตลอดเวลา
         </p>
       </div>
 
       <div class="row g-4">
         <!-- Contact Info Cards -->
         <div class="col-12 col-lg-4 reveal-init">
-          <div class="card border-0 shadow-sm mb-4 glass-card hover-elevate rounded-4 border-start border-4 border-accent">
+          <div
+            class="card border-0 shadow-sm mb-4 glass-card hover-elevate rounded-4 border-start border-4 border-accent"
+          >
             <div class="card-body p-4">
               <div class="d-flex align-items-start gap-3">
-                <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="width:48px;height:48px; background: var(--gradient-primary);">
+                <div
+                  class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm"
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    background: var(--gradient-primary);
+                  "
+                >
                   <i class="bi bi-telephone-fill fs-4"></i>
                 </div>
                 <div>
-                  <h3 class="fw-bold text-body mb-1 h6">เบอร์โทรติดต่อสาขาวิชาฯ</h3>
+                  <h3 class="fw-bold text-body mb-1 h6">
+                    เบอร์โทรติดต่อสาขาวิชาฯ
+                  </h3>
                   <p class="text-muted mb-0 small">{{ contact_info.phone }}</p>
-                  <small class="text-accent fw-bold d-block mt-1">สายด่วน: {{ contact_info.hotline }}</small>
+                  <small class="text-accent fw-bold d-block mt-1"
+                    >สายด่วน: {{ contact_info.hotline }}</small
+                  >
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="card border-0 shadow-sm mb-4 glass-card hover-elevate rounded-4 border-start border-4 border-accent">
+          <div
+            class="card border-0 shadow-sm mb-4 glass-card hover-elevate rounded-4 border-start border-4 border-accent"
+          >
             <div class="card-body p-4">
               <div class="d-flex align-items-start gap-3">
-                <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="width:48px;height:48px; background: var(--gradient-primary);">
+                <div
+                  class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm"
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    background: var(--gradient-primary);
+                  "
+                >
                   <i class="bi bi-envelope-at-fill fs-4"></i>
                 </div>
                 <div>
-                  <h3 class="fw-bold text-body mb-1 h6">อีเมลติดต่อสาขาวิชาฯ</h3>
+                  <h3 class="fw-bold text-body mb-1 h6">
+                    อีเมลติดต่อสาขาวิชาฯ
+                  </h3>
                   <p class="text-muted mb-0 small">
-                    <a href="mailto:{{ contact_info.email }}" class="text-decoration-none text-body">{{ contact_info.email }}</a>
+                    <a
+                      href="mailto:{{ contact_info.email }}"
+                      class="text-decoration-none text-body"
+                      >{{ contact_info.email }}</a
+                    >
                   </p>
-                  <small class="text-muted d-block mt-1">{{ contact_info.head_lecturer }}</small>
+                  <small class="text-muted d-block mt-1"
+                    >{{ contact_info.head_lecturer }}</small
+                  >
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="card border-0 shadow-sm mb-4 glass-card hover-elevate rounded-4 border-start border-4 border-accent">
+          <div
+            class="card border-0 shadow-sm mb-4 glass-card hover-elevate rounded-4 border-start border-4 border-accent"
+          >
             <div class="card-body p-4">
               <div class="d-flex align-items-start gap-3">
-                <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="width:48px;height:48px; background: var(--gradient-sand);">
+                <div
+                  class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow-sm"
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    background: var(--gradient-sand);
+                  "
+                >
                   <i class="bi bi-geo-alt-fill fs-4"></i>
                 </div>
                 <div>
                   <h3 class="fw-bold text-body mb-1 h6">ที่ตั้งอาคารเรียน</h3>
-                  <p class="text-muted mb-0 small">{{ contact_info.building }}</p>
-                  <small class="text-muted d-block mt-1">{{ contact_info.address }}</small>
+                  <p class="text-muted mb-0 small">
+                    {{ contact_info.building }}
+                  </p>
+                  <small class="text-muted d-block mt-1"
+                    >{{ contact_info.address }}</small
+                  >
                 </div>
               </div>
             </div>
@@ -851,9 +1640,21 @@
 
         <!-- Google Map iframe -->
         <div class="col-12 col-lg-8 reveal-init reveal-delay-2">
-          <div class="card border-0 shadow-sm overflow-hidden h-100 rounded-4 glass-card" style="min-height:380px">
+          <div
+            class="card border-0 shadow-sm overflow-hidden h-100 rounded-4 glass-card"
+            style="min-height: 380px"
+          >
             <div class="card-body p-0 h-100">
-              <iframe src="{{ contact_info.map_iframe }}" width="100%" height="100%" style="border:0;display:block;min-height:380px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Sisaket Rajabhat University"></iframe>
+              <iframe
+                src="{{ contact_info.map_iframe }}"
+                width="100%"
+                height="100%"
+                style="border: 0; display: block; min-height: 380px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Google Map of Sisaket Rajabhat University"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -864,23 +1665,72 @@
         <div class="row g-4">
           <!-- Facebook Fanpage -->
           <div class="col-12 col-md-6">
-            <div class="card social-card social-card-facebook border-0 rounded-4 shadow-sm text-white overflow-hidden h-100" style="background: linear-gradient(135deg, #1877f2 0%, #0d5bb5 100%) !important;">
-              <div class="card-body p-4 d-flex flex-column justify-content-between h-100">
+            <div
+              class="card social-card social-card-facebook border-0 rounded-4 shadow-sm text-white overflow-hidden h-100"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #1877f2 0%,
+                  #0d5bb5 100%
+                ) !important;
+              "
+            >
+              <div
+                class="card-body p-4 d-flex flex-column justify-content-between h-100"
+              >
                 <div class="d-flex align-items-center gap-3 mb-3">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm" style="width:58px;height:58px; background-color:#ffffff !important;">
-                    <i class="bi bi-facebook fs-2" style="color:#1877f2 !important;"></i>
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm"
+                    style="
+                      width: 58px;
+                      height: 58px;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-facebook fs-2"
+                      style="color: #1877f2 !important"
+                    ></i>
                   </div>
                   <div>
                     <h3 class="fw-bold mb-1 text-white h5">Facebook Fanpage</h3>
-                    <span class="badge bg-white px-2.5 py-1 small fw-bold" style="color:#1877f2 !important; background-color:#ffffff !important;"><i class="bi bi-megaphone-fill me-1" style="color:#1877f2 !important;"></i>ข่าวสาร & กิจกรรม</span>
+                    <span
+                      class="badge bg-white px-2.5 py-1 small fw-bold"
+                      style="
+                        color: #1877f2 !important;
+                        background-color: #ffffff !important;
+                      "
+                      ><i
+                        class="bi bi-megaphone-fill me-1"
+                        style="color: #1877f2 !important"
+                      ></i
+                      >ข่าวสาร & กิจกรรม</span
+                    >
                   </div>
                 </div>
-                <p class="mb-4 text-white-50 small flex-grow-1" style="line-height:1.6">
-                  ติดตามข่าวสารความเคลื่อนไหว กิจกรรมสาขาฯ ผลงานนักศึกษา ทุนการศึกษา การแข่งขันวิชาการ และภาพบรรยากาศการเรียน
+                <p
+                  class="mb-4 text-white-50 small flex-grow-1"
+                  style="line-height: 1.6"
+                >
+                  ติดตามข่าวสารความเคลื่อนไหว กิจกรรมสาขาฯ ผลงานนักศึกษา
+                  ทุนการศึกษา การแข่งขันวิชาการ และภาพบรรยากาศการเรียน
                 </p>
                 <div>
-                  <a href="{{ contact_info.fb_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm" style="color:#1877f2 !important; background-color:#ffffff !important;">
-                    <i class="bi bi-facebook me-2" style="color:#1877f2 !important;"></i>ติดตามแฟนเพจบน Facebook
+                  <a
+                    href="{{ contact_info.fb_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm"
+                    style="
+                      color: #1877f2 !important;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-facebook me-2"
+                      style="color: #1877f2 !important"
+                    ></i
+                    >ติดตามแฟนเพจบน Facebook
                   </a>
                 </div>
               </div>
@@ -889,23 +1739,72 @@
 
           <!-- LINE AI Chatbot -->
           <div class="col-12 col-md-6">
-            <div class="card social-card social-card-line border-0 rounded-4 shadow-sm text-white overflow-hidden h-100" style="background: linear-gradient(135deg, #05b04b 0%, #008a38 100%) !important;">
-              <div class="card-body p-4 d-flex flex-column justify-content-between h-100">
+            <div
+              class="card social-card social-card-line border-0 rounded-4 shadow-sm text-white overflow-hidden h-100"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #05b04b 0%,
+                  #008a38 100%
+                ) !important;
+              "
+            >
+              <div
+                class="card-body p-4 d-flex flex-column justify-content-between h-100"
+              >
                 <div class="d-flex align-items-center gap-3 mb-3">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm" style="width:58px;height:58px; background-color:#ffffff !important;">
-                    <i class="bi bi-line fs-2" style="color:#05b04b !important;"></i>
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm"
+                    style="
+                      width: 58px;
+                      height: 58px;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-line fs-2"
+                      style="color: #05b04b !important"
+                    ></i>
                   </div>
                   <div>
                     <h3 class="fw-bold mb-1 text-white h5">LINE AI Chatbot</h3>
-                    <span class="badge bg-white px-2.5 py-1 small fw-bold" style="color:#05b04b !important; background-color:#ffffff !important;"><i class="bi bi-robot me-1" style="color:#05b04b !important;"></i>ระบบตอบรับ Gemini</span>
+                    <span
+                      class="badge bg-white px-2.5 py-1 small fw-bold"
+                      style="
+                        color: #05b04b !important;
+                        background-color: #ffffff !important;
+                      "
+                      ><i
+                        class="bi bi-robot me-1"
+                        style="color: #05b04b !important"
+                      ></i
+                      >ระบบตอบรับ Gemini</span
+                    >
                   </div>
                 </div>
-                <p class="mb-4 text-white-50 small flex-grow-1" style="line-height:1.6">
-                  สอบถามรายละเอียดการรับสมัคร ทุนการศึกษา กติกา และขั้นตอนการรายงานตัวนักศึกษาได้คำตอบรวดเร็วตลอด 24 ชั่วโมง
+                <p
+                  class="mb-4 text-white-50 small flex-grow-1"
+                  style="line-height: 1.6"
+                >
+                  สอบถามรายละเอียดการรับสมัคร ทุนการศึกษา กติกา
+                  และขั้นตอนการรายงานตัวนักศึกษาได้คำตอบรวดเร็วตลอด 24 ชั่วโมง
                 </p>
                 <div>
-                  <a href="{{ contact_info.line_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm" style="color:#05b04b !important; background-color:#ffffff !important;">
-                    <i class="bi bi-plus-circle-fill me-2" style="color:#05b04b !important;"></i>เพิ่มเพื่อนใน LINE
+                  <a
+                    href="{{ contact_info.line_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm"
+                    style="
+                      color: #05b04b !important;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-plus-circle-fill me-2"
+                      style="color: #05b04b !important"
+                    ></i
+                    >เพิ่มเพื่อนใน LINE
                   </a>
                 </div>
               </div>
@@ -914,23 +1813,73 @@
 
           <!-- TikTok Channel -->
           <div class="col-12 col-md-6">
-            <div class="card social-card social-card-tiktok border-0 rounded-4 shadow-sm text-white overflow-hidden h-100" style="background: linear-gradient(135deg, #111111 0%, #222222 100%) !important; border: 1px solid rgba(254, 44, 85, 0.4) !important;">
-              <div class="card-body p-4 d-flex flex-column justify-content-between h-100">
+            <div
+              class="card social-card social-card-tiktok border-0 rounded-4 shadow-sm text-white overflow-hidden h-100"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #111111 0%,
+                  #222222 100%
+                ) !important;
+                border: 1px solid rgba(254, 44, 85, 0.4) !important;
+              "
+            >
+              <div
+                class="card-body p-4 d-flex flex-column justify-content-between h-100"
+              >
                 <div class="d-flex align-items-center gap-3 mb-3">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm" style="width:58px;height:58px; background-color:#ffffff !important;">
-                    <i class="bi bi-tiktok fs-2" style="color:#fe2c55 !important;"></i>
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm"
+                    style="
+                      width: 58px;
+                      height: 58px;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-tiktok fs-2"
+                      style="color: #fe2c55 !important"
+                    ></i>
                   </div>
                   <div>
                     <h3 class="fw-bold mb-1 text-white h5">TikTok Channel</h3>
-                    <span class="badge bg-white px-2.5 py-1 small fw-bold" style="color:#fe2c55 !important; background-color:#ffffff !important;"><i class="bi bi-play-circle-fill me-1" style="color:#fe2c55 !important;"></i>คลิปวิดีโอสั้น</span>
+                    <span
+                      class="badge bg-white px-2.5 py-1 small fw-bold"
+                      style="
+                        color: #fe2c55 !important;
+                        background-color: #ffffff !important;
+                      "
+                      ><i
+                        class="bi bi-play-circle-fill me-1"
+                        style="color: #fe2c55 !important"
+                      ></i
+                      >คลิปวิดีโอสั้น</span
+                    >
                   </div>
                 </div>
-                <p class="mb-4 text-white-50 small flex-grow-1" style="line-height:1.6">
-                  ชมคลิปแนะนำบรรยากาศการเรียน กิจกรรมของนักศึกษา ผลงานโครงงาน และไฮไลท์สาขาวิชาฯ ในรูปแบบวิดีโอสั้น
+                <p
+                  class="mb-4 text-white-50 small flex-grow-1"
+                  style="line-height: 1.6"
+                >
+                  ชมคลิปแนะนำบรรยากาศการเรียน กิจกรรมของนักศึกษา ผลงานโครงงาน
+                  และไฮไลท์สาขาวิชาฯ ในรูปแบบวิดีโอสั้น
                 </p>
                 <div>
-                  <a href="{{ contact_info.tiktok_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm" style="color:#111111 !important; background-color:#ffffff !important;">
-                    <i class="bi bi-tiktok me-2" style="color:#fe2c55 !important;"></i>ติดตามบน TikTok
+                  <a
+                    href="{{ contact_info.tiktok_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm"
+                    style="
+                      color: #111111 !important;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-tiktok me-2"
+                      style="color: #fe2c55 !important"
+                    ></i
+                    >ติดตามบน TikTok
                   </a>
                 </div>
               </div>
@@ -939,23 +1888,73 @@
 
           <!-- Instagram Page -->
           <div class="col-12 col-md-6">
-            <div class="card social-card social-card-instagram border-0 rounded-4 shadow-sm text-white overflow-hidden h-100" style="background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%) !important;">
-              <div class="card-body p-4 d-flex flex-column justify-content-between h-100">
+            <div
+              class="card social-card social-card-instagram border-0 rounded-4 shadow-sm text-white overflow-hidden h-100"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #833ab4 0%,
+                  #fd1d1d 50%,
+                  #fcb045 100%
+                ) !important;
+              "
+            >
+              <div
+                class="card-body p-4 d-flex flex-column justify-content-between h-100"
+              >
                 <div class="d-flex align-items-center gap-3 mb-3">
-                  <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm" style="width:58px;height:58px; background-color:#ffffff !important;">
-                    <i class="bi bi-instagram fs-2" style="color:#e1306c !important;"></i>
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-white shadow-sm"
+                    style="
+                      width: 58px;
+                      height: 58px;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-instagram fs-2"
+                      style="color: #e1306c !important"
+                    ></i>
                   </div>
                   <div>
                     <h3 class="fw-bold mb-1 text-white h5">Instagram Page</h3>
-                    <span class="badge bg-white px-2.5 py-1 small fw-bold" style="color:#c13584 !important; background-color:#ffffff !important;"><i class="bi bi-camera-fill me-1" style="color:#c13584 !important;"></i>ภาพกิจกรรม & สตอรี่</span>
+                    <span
+                      class="badge bg-white px-2.5 py-1 small fw-bold"
+                      style="
+                        color: #c13584 !important;
+                        background-color: #ffffff !important;
+                      "
+                      ><i
+                        class="bi bi-camera-fill me-1"
+                        style="color: #c13584 !important"
+                      ></i
+                      >ภาพกิจกรรม & สตอรี่</span
+                    >
                   </div>
                 </div>
-                <p class="mb-4 text-white-50 small flex-grow-1" style="line-height:1.6">
-                  ติดตามภาพบรรยากาศการเรียน กิจกรรมไลฟ์สไตล์นักศึกษา และสตอรี่อัปเดตความเคลื่อนไหวผ่าน Instagram
+                <p
+                  class="mb-4 text-white-50 small flex-grow-1"
+                  style="line-height: 1.6"
+                >
+                  ติดตามภาพบรรยากาศการเรียน กิจกรรมไลฟ์สไตล์นักศึกษา
+                  และสตอรี่อัปเดตความเคลื่อนไหวผ่าน Instagram
                 </p>
                 <div>
-                  <a href="{{ contact_info.ig_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm" style="color:#c13584 !important; background-color:#ffffff !important;">
-                    <i class="bi bi-instagram me-2" style="color:#e1306c !important;"></i>ติดตามบน Instagram
+                  <a
+                    href="{{ contact_info.ig_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-light fw-bold rounded-pill w-100 py-2.5 shadow-sm"
+                    style="
+                      color: #c13584 !important;
+                      background-color: #ffffff !important;
+                    "
+                  >
+                    <i
+                      class="bi bi-instagram me-2"
+                      style="color: #e1306c !important"
+                    ></i
+                    >ติดตามบน Instagram
                   </a>
                 </div>
               </div>
@@ -973,60 +1972,164 @@
     <div class="row g-4 mb-5">
       <div class="col-12 col-md-6 col-lg-5">
         <h3 class="h5 mb-3 d-flex align-items-center gap-2 text-white">
-          <img src="{% static 'images/logo.png' %}" alt="CS Logo" width="32" height="32" class="rounded-circle" />
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="CS Logo"
+            width="32"
+            height="32"
+            class="rounded-circle"
+          />
           COM-SCI SSKRU
         </h3>
-        <p class="mb-2 text-white-50">"ก้าวสู่อนาคตทางเทคโนโลยี สร้างสรรค์ซอฟต์แวร์แห่งนวัตกรรม"</p>
-        <p class="mb-3 text-white-50 small" style="line-height:1.6">
-          {{ contact_info.building }} คณะศิลปศาสตร์และวิทยาศาสตร์ มหาวิทยาลัยราชภัฏศรีสะเกษ {{ contact_info.address }}
+        <p class="mb-2 text-white-50">
+          "ก้าวสู่อนาคตทางเทคโนโลยี สร้างสรรค์ซอฟต์แวร์แห่งนวัตกรรม"
+        </p>
+        <p class="mb-3 text-white-50 small" style="line-height: 1.6">
+          {{ contact_info.building }} คณะศิลปศาสตร์และวิทยาศาสตร์
+          มหาวิทยาลัยราชภัฏศรีสะเกษ {{ contact_info.address }}
         </p>
         <div class="d-flex gap-3 mt-3">
-          <a href="{{ contact_info.fb_url }}" target="_blank" rel="noopener noreferrer" class="footer-social-icon text-white fs-5" title="Facebook Page"><i class="bi bi-facebook"></i></a>
-          <a href="{{ contact_info.line_url }}" target="_blank" rel="noopener noreferrer" class="footer-social-icon text-white fs-5" title="LINE Official"><i class="bi bi-line"></i></a>
-          <a href="{{ contact_info.tiktok_url }}" target="_blank" rel="noopener noreferrer" class="footer-social-icon text-white fs-5" title="TikTok Channel"><i class="bi bi-tiktok"></i></a>
-          <a href="{{ contact_info.ig_url }}" target="_blank" rel="noopener noreferrer" class="footer-social-icon text-white fs-5" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a
+            href="{{ contact_info.fb_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social-icon text-white fs-5"
+            title="Facebook Page"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a
+            href="{{ contact_info.line_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social-icon text-white fs-5"
+            title="LINE Official"
+            ><i class="bi bi-line"></i
+          ></a>
+          <a
+            href="{{ contact_info.tiktok_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social-icon text-white fs-5"
+            title="TikTok Channel"
+            ><i class="bi bi-tiktok"></i
+          ></a>
+          <a
+            href="{{ contact_info.ig_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social-icon text-white fs-5"
+            title="Instagram"
+            ><i class="bi bi-instagram"></i
+          ></a>
         </div>
       </div>
 
       <div class="col-6 col-md-3 col-lg-2">
         <h4 class="h6 fw-bold mb-3 text-white">ลิงก์ที่ใช้งานบ่อย</h4>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2"><a href="#hero" class="text-white-50 text-decoration-none hover-accent">หน้าแรก</a></li>
-          <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none hover-accent">เกี่ยวกับสาขาฯ</a></li>
-          <li class="mb-2"><a href="#features" class="text-white-50 text-decoration-none hover-accent">วิชาในหลักสูตร</a></li>
-          <li class="mb-2"><a href="#schedule" class="text-white-50 text-decoration-none hover-accent">แผนการเรียนรายภาค</a></li>
-          <li class="mb-2"><a href="#download" class="text-white-50 text-decoration-none hover-accent">ดาวน์โหลดคู่มือ</a></li>
+          <li class="mb-2">
+            <a
+              href="#hero"
+              class="text-white-50 text-decoration-none hover-accent"
+              >หน้าแรก</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              href="#about"
+              class="text-white-50 text-decoration-none hover-accent"
+              >เกี่ยวกับสาขาฯ</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              href="#features"
+              class="text-white-50 text-decoration-none hover-accent"
+              >วิชาในหลักสูตร</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              href="#schedule"
+              class="text-white-50 text-decoration-none hover-accent"
+              >แผนการเรียนรายภาค</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              href="#download"
+              class="text-white-50 text-decoration-none hover-accent"
+              >ดาวน์โหลดคู่มือ</a
+            >
+          </li>
         </ul>
       </div>
 
       <div class="col-6 col-md-3 col-lg-2">
         <h4 class="h6 fw-bold mb-3 text-white">ความเชี่ยวชาญพิเศษ</h4>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2"><a href="#features" class="text-white-50 text-decoration-none hover-accent">ทฤษฎีวิทยาการคอม</a></li>
-          <li class="mb-2"><a href="#features" class="text-white-50 text-decoration-none hover-accent">การวิศวกรรมซอฟต์แวร์</a></li>
-          <li class="mb-2"><a href="#features" class="text-white-50 text-decoration-none hover-accent">ปัญญาประดิษฐ์และ Big Data</a></li>
+          <li class="mb-2">
+            <a
+              href="#features"
+              class="text-white-50 text-decoration-none hover-accent"
+              >ทฤษฎีวิทยาการคอม</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              href="#features"
+              class="text-white-50 text-decoration-none hover-accent"
+              >การวิศวกรรมซอฟต์แวร์</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              href="#features"
+              class="text-white-50 text-decoration-none hover-accent"
+              >ปัญญาประดิษฐ์และ Big Data</a
+            >
+          </li>
         </ul>
       </div>
 
       <div class="col-12 col-md-6 col-lg-3">
         <h4 class="h6 fw-bold mb-3 text-white">ข้อมูลติดต่อหลักสูตร</h4>
         <div class="mb-3 small text-white-50">
-          <div><i class="bi bi-geo-alt me-2 text-accent"></i>{{ contact_info.building }}</div>
+          <div>
+            <i class="bi bi-geo-alt me-2 text-accent"></i>{{
+            contact_info.building }}
+          </div>
         </div>
-        <p class="mb-2 small text-white-50"><i class="bi bi-telephone me-2 text-accent"></i>{{ contact_info.phone }}</p>
-        <p class="mb-2 small text-white-50"><i class="bi bi-envelope me-2 text-accent"></i>{{ contact_info.email }}</p>
-        <p class="mb-2 small text-white-50"><i class="bi bi-clock me-2 text-accent"></i>วันจันทร์ - ศุกร์: 8:30 AM - 4:30 PM</p>
+        <p class="mb-2 small text-white-50">
+          <i class="bi bi-telephone me-2 text-accent"></i>{{ contact_info.phone
+          }}
+        </p>
+        <p class="mb-2 small text-white-50">
+          <i class="bi bi-envelope me-2 text-accent"></i>{{ contact_info.email
+          }}
+        </p>
+        <p class="mb-2 small text-white-50">
+          <i class="bi bi-clock me-2 text-accent"></i>วันจันทร์ - ศุกร์: 8:30 AM
+          - 4:30 PM
+        </p>
       </div>
     </div>
 
     <div class="border-top border-secondary pt-4 mt-2">
       <div class="row align-items-center">
         <div class="col-md-7 text-center text-md-start mb-3 mb-md-0">
-          <div class="small text-white-50 mb-1">หัวหน้าสาขาวิชาฯ: {{ contact_info.head_lecturer }}</div>
-          <div class="small text-white-50">© 2026 <strong>สาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ</strong>. All rights reserved.</div>
+          <div class="small text-white-50 mb-1">
+            หัวหน้าสาขาวิชาฯ: {{ contact_info.head_lecturer }}
+          </div>
+          <div class="small text-white-50">
+            © 2026 <strong>สาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ</strong>.
+            All rights reserved.
+          </div>
         </div>
         <div class="col-md-5 text-center text-md-end">
-          <small class="text-white-50">Developed & Cloned by Computer Science SSKRU</small>
+          <small class="text-white-50"
+            >Developed & Cloned by Computer Science SSKRU</small
+          >
         </div>
       </div>
     </div>
@@ -1034,28 +2137,66 @@
 </footer>
 
 <!-- Lecturer Detail Modal (Exact Reference Layout matching comsci-sskru.vercel.app) -->
-<div class="modal fade" id="lecturerModal" tabindex="-1" aria-labelledby="lecturerModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="lecturerModal"
+  tabindex="-1"
+  aria-labelledby="lecturerModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered modal-xl modal-lecturer-xl">
-    <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden glass-card">
-      
+    <div
+      class="modal-content border-0 rounded-4 shadow-lg overflow-hidden glass-card"
+    >
       <!-- Header Banner (Dark Indigo/Navy Header) -->
-      <div class="modal-header-banner p-4 text-white position-relative" style="background: linear-gradient(135deg, #102a43 0%, #1a365d 100%);">
+      <div
+        class="modal-header-banner p-4 text-white position-relative"
+        style="background: linear-gradient(135deg, #102a43 0%, #1a365d 100%)"
+      >
         <div class="d-flex align-items-center gap-3 pe-5">
-          <div class="avatar-circle rounded-circle shadow-md p-1 bg-white flex-shrink-0" style="width:84px;height:84px;">
-            <img id="modalLecturerImg" src="" alt="Lecturer" width="76" height="76" class="rounded-circle object-fit-cover" />
+          <div
+            class="avatar-circle rounded-circle shadow-md p-1 bg-white flex-shrink-0"
+            style="width: 84px; height: 84px"
+          >
+            <img
+              id="modalLecturerImg"
+              src=""
+              alt="Lecturer"
+              width="76"
+              height="76"
+              class="rounded-circle object-fit-cover"
+            />
           </div>
           <div>
-            <h3 class="fw-bold text-white mb-1 fs-4" id="modalLecturerName"></h3>
-            <p class="text-white-50 small mb-2 font-monospace" id="modalLecturerEnName"></p>
+            <h3
+              class="fw-bold text-white mb-1 fs-4"
+              id="modalLecturerName"
+            ></h3>
+            <p
+              class="text-white-50 small mb-2 font-monospace"
+              id="modalLecturerEnName"
+            ></p>
             <div class="d-flex flex-wrap gap-2">
-              <span class="badge rounded-pill bg-white text-dark px-3 py-1 font-monospace small" id="modalLecturerRole"></span>
-              <span class="badge rounded-pill bg-info text-white px-3 py-1 small" id="modalLecturerSpecialty"></span>
+              <span
+                class="badge rounded-pill bg-white text-dark px-3 py-1 font-monospace small"
+                id="modalLecturerRole"
+              ></span>
+              <span
+                class="badge rounded-pill bg-info text-white px-3 py-1 small"
+                id="modalLecturerSpecialty"
+              ></span>
             </div>
           </div>
         </div>
 
         <!-- Visible X Close Button with Rotation Effect & Proper Spacing -->
-        <button type="button" class="btn-close-custom modal-close-btn position-absolute d-flex align-items-center justify-content-center text-white" data-bs-dismiss="modal" aria-label="Close" title="ปิดหน้าต่าง">
+        <button
+          type="button"
+          class="btn-close-custom modal-close-btn position-absolute d-flex align-items-center justify-content-center text-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          title="ปิดหน้าต่าง"
+        >
           <i class="bi bi-x-lg fs-5"></i>
         </button>
       </div>
@@ -1066,7 +2207,8 @@
           <!-- Left Column: Education Timeline -->
           <div class="col-12 col-md-5 border-end-md">
             <h4 class="fw-bold text-body mb-4 fs-5 d-flex align-items-center">
-              <i class="bi bi-mortarboard-fill text-accent me-2"></i>ประวัติการศึกษา
+              <i class="bi bi-mortarboard-fill text-accent me-2"></i
+              >ประวัติการศึกษา
             </h4>
             <div class="education-timeline ps-2" id="modalLecturerEduTimeline">
               <!-- Rendered via JS -->
@@ -1078,7 +2220,8 @@
             <!-- Main Courses Taught -->
             <div class="mb-4">
               <h4 class="fw-bold text-body mb-3 fs-5 d-flex align-items-center">
-                <i class="bi bi-book-fill text-accent me-2"></i>รายวิชาที่สอนหลัก
+                <i class="bi bi-book-fill text-accent me-2"></i
+                >รายวิชาที่สอนหลัก
               </h4>
               <div class="row g-2.5" id="modalLecturerCoursesGrid">
                 <!-- Rendered via JS -->
@@ -1088,7 +2231,8 @@
             <!-- Publications -->
             <div>
               <h4 class="fw-bold text-body mb-3 fs-5 d-flex align-items-center">
-                <i class="bi bi-journal-richtext text-accent me-2"></i>ผลงานตีพิมพ์ทางวิชาการ
+                <i class="bi bi-journal-richtext text-accent me-2"></i
+                >ผลงานตีพิมพ์ทางวิชาการ
               </h4>
               <div id="modalLecturerPubBox">
                 <!-- Rendered via JS -->
@@ -1097,7 +2241,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
