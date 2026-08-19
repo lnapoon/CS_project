@@ -425,6 +425,7 @@ def index(request):
             "line_url": "https://line.me/R/ti/p/@793ozxpi?oat_content=url&ts=05271601",
             "fb_url": "https://www.facebook.com/comsci.sskru",
             "tiktok_url": "https://www.tiktok.com/@comsciencesskru",
+            "ig_url": "https://www.instagram.com/cs_fxmixy?igsi=eHp0eHdpZjljZWw1",
             "map_iframe": "https://maps.google.com/maps?q=ตึก4คณะศิลปศาสตร์และวิทยาศาสตร์%20มหาวิทยาลัยราชภัฏศรีสะเกษ&t=&z=17&ie=UTF8&iwloc=&output=embed",
         },
         "reports": [

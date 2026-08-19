@@ -44,13 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function type() {
       const currentWord = words[wordIndex] || 'มรภ.ศรีสะเกษ';
 
+      let text = '';
       if (isDeleting) {
-        typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+        text = currentWord.substring(0, charIndex - 1);
         charIndex--;
       } else {
-        typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+        text = currentWord.substring(0, charIndex + 1);
         charIndex++;
       }
+
+      typewriterEl.textContent = text || '\u00A0';
 
       let typeSpeed = isDeleting ? 50 : 110;
 
@@ -387,38 +390,105 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 11. Interactive CS Career Quiz Logic
+  // 11. Interactive CS Career Quiz Logic (8 Comprehensive Tech Career Tracks)
   const calcQuizBtn = document.getElementById('calcQuizBtn');
   const quizResultBox = document.getElementById('quizResultBox');
   const quizResultTitle = document.getElementById('quizResultTitle');
   const quizResultDesc = document.getElementById('quizResultDesc');
+  const quizSalaryBadge = document.getElementById('quizSalaryBadge');
+  const quizSubjectsGrid = document.getElementById('quizSubjectsGrid');
 
   if (calcQuizBtn) {
     calcQuizBtn.addEventListener('click', () => {
-      const q1 = document.getElementById('quizQ1').value;
-      const q2 = document.getElementById('quizQ2').value;
+      const q1El = document.getElementById('quizQ1');
+      const q2El = document.getElementById('quizQ2');
+      const q3El = document.getElementById('quizQ3');
 
-      let title = "";
-      let desc = "";
+      const q1 = q1El ? q1El.value : 'dev';
+      const q2 = q2El ? q2El.value : 'dev';
+      const q3 = q3El ? q3El.value : 'dev';
 
-      if (q1 === 'dev' || q2 === 'dev') {
-        title = "💻 คุณเหมาะกับสาย Full-Stack Software Developer!";
-        desc = "คุณมีพรสวรรค์ในการสร้างสรรค์ซอฟต์แวร์และเว็บไซต์! หลักสูตรเราจะเน้นปูพื้นฐานภาษา Python, JavaScript, Django, RESTful APIs และการพัฒนาระบบจริงเพื่อก้าวสู่ตลาดงานระดับโลก";
-      } else if (q1 === 'ai' || q2 === 'ai') {
-        title = "🤖 คุณเหมาะกับสาย AI & Machine Learning Engineer!";
-        desc = "คุณมีความหลงใหลในเทคโนโลยีแห่งอนาคต! สาขาเราสอนวิชาคณิตศาสตร์สำหรับ AI, Deep Learning, การพัฒนา LLM และโปรเจกต์หุ่นยนต์ระดับประเทศ";
-      } else if (q1 === 'data' || q2 === 'data') {
-        title = "📊 คุณเหมาะกับสาย Data Scientist & Big Data Specialist!";
-        desc = "คุณชอบค้นหาความรู้ที่ซ่อนอยู่ในข้อมูล! สาขาวิชาฯ มีรายวิชาการทำเหมืองข้อมูล, ระบบฐานข้อมูล SQL, และการวิเคราะห์ภาพเพื่อต่อยอดในองค์กรชั้นนำ";
-      } else {
-        title = "🛡️ คุณเหมาะกับสาย Cyber Security & Cloud Architect!";
-        desc = "คุณคือนักปกป้องโลกดิจิทัล! สาขาวิชาฯ มีแล็บปฏิบัติการเครือข่าย, ความปลอดภัยของข้อมูล, ภูมิคุ้มกันไซเบอร์ และระบบคลาวด์เพื่อสร้างภูมิคุ้มกันให้ระบบ";
+      // Score tallying
+      const scoreMap = {};
+      [q1, q2, q3].forEach(val => {
+        scoreMap[val] = (scoreMap[val] || 0) + 1;
+      });
+
+      let topTrack = q1;
+      let maxScore = 0;
+      for (const track in scoreMap) {
+        if (scoreMap[track] > maxScore) {
+          maxScore = scoreMap[track];
+          topTrack = track;
+        }
       }
 
+      const tracksInfo = {
+        dev: {
+          title: "💻 สาย Full-Stack Software & Mobile Developer",
+          salary: "💰 เงินเดือนเริ่มต้น: 28,000 - 65,000+ บาท/เดือน",
+          desc: "คุณมีพรสวรรค์ในการสร้างสรรค์ซอฟต์แวร์และแอปพลิเคชัน! หลักสูตรเราเน้นปูพื้นฐานภาษา Python, JavaScript, Django, Web Frameworks, RESTful APIs และการพัฒนาระบบจริงเพื่อก้าวสู่ตลาดงานระดับสากล",
+          subjects: ["การโปรแกรมเชิงวัตถุ", "สถาปัตยกรรมซอฟต์แวร์", "การพัฒนาเว็บแอปพลิเคชัน", "การพัฒนาแอปมือถือ"]
+        },
+        ai: {
+          title: "🤖 สาย AI & Machine Learning Engineer",
+          salary: "💰 เงินเดือนเริ่มต้น: 35,000 - 85,000+ บาท/เดือน",
+          desc: "คุณหลงใหลในเทคโนโลยีแห่งอนาคตและปัญญาประดิษฐ์! สาขาเราปูพื้นฐานคณิตศาสตร์คอมพิวเตอร์, Machine Learning, Deep Learning, การพัฒนา AI Chatbot/LLMs และระบบประมวลผลภาพ",
+          subjects: ["ปัญญาประดิษฐ์", "การทำเหมืองข้อมูล", "การประมวลผลภาพดิจิทัล", "วิทยาการข้อมูล"]
+        },
+        data: {
+          title: "📊 สาย Data Scientist & Big Data Specialist",
+          salary: "💰 เงินเดือนเริ่มต้น: 32,000 - 75,000+ บาท/เดือน",
+          desc: "คุณชอบค้นหาความลับและขุมทรัพย์ในข้อมูล! สาขาวิชาฯ มีรายวิชาระบบฐานข้อมูล SQL, Big Data Analytics, สถิติวัดผล และโมเดลทำนายข้อมูลเพื่อช่วยองค์กรตัดสินใจเชิงกลยุทธ์",
+          subjects: ["ระบบจัดการฐานข้อมูล", "คลังข้อมูลและการทำเหมืองข้อมูล", "วิทยาการข้อมูล", "ระเบียบวิธีวิจัย"]
+        },
+        sec: {
+          title: "🛡️ สาย Cybersecurity & Cloud Infrastructure",
+          salary: "💰 เงินเดือนเริ่มต้น: 30,000 - 80,000+ บาท/เดือน",
+          desc: "คุณคือผู้พิทักษ์โลกดิจิทัลและระบบคลาวด์! สาขาเราสอนแล็บปฏิบัติการเครือข่ายคอมพิวเตอร์, การป้องกันแฮกเกอร์, ความปลอดภัยข้อมูล และสถาปัตยกรรมคลาวด์คอมพิวติ้ง",
+          subjects: ["การสื่อสารข้อมูลและเครือข่าย", "ความมั่นคงปลอดภัยไซเบอร์", "ระบบปฏิบัติการ", "การคำนวณแบบคลาวด์"]
+        },
+        game: {
+          title: "🎮 สาย Game Developer & 3D Interactive Media",
+          salary: "💰 เงินเดือนเริ่มต้น: 28,000 - 60,000+ บาท/เดือน",
+          desc: "คุณมีจินตนาการและหลงใหลในโลกอินเทอร์แอคทีฟ! สาขาวิชาฯ ปูพื้นฐานการเขียนโปรแกรมเชิงวัตถุ, Computer Graphics, การออกแบบเกม และเอนจินจำลอง 3D/AR/VR",
+          subjects: ["คอมพิวเตอร์กราฟิก", "การโปรแกรมเชิงวัตถุ", "การออกแบบประสบการณ์ผู้ใช้", "โครงงานนวัตกรรม"]
+        },
+        ux: {
+          title: "🎨 สาย UI/UX Designer & Frontend Engineer",
+          salary: "💰 เงินเดือนเริ่มต้น: 25,000 - 55,000+ บาท/เดือน",
+          desc: "คุณมีสายตาที่เฉียบแหลมในการออกแบบการใช้งาน! สาขาวิชาฯ ปูพื้นฐาน Human-Computer Interaction (HCI), การออกแบบอินเทอร์เฟซสวยงาม และเทคโนโลยี Frontend สมัยใหม่",
+          subjects: ["การปฏิสัมพันธ์ระหว่างมนุษย์และคอมพิวเตอร์", "การพัฒนาเว็บแอปพลิเคชัน", "เทคโนโลยีสื่อประสม", "การวิเคราะห์และออกแบบระบบ"]
+        },
+        devops: {
+          title: "🚀 สาย Cloud DevOps Engineer & Site Reliability (SRE)",
+          salary: "💰 เงินเดือนเริ่มต้น: 35,000 - 90,000+ บาท/เดือน",
+          desc: "คุณชอบสร้างระบบอัตโนมัติและดูแลความเสถียรของเซิร์ฟเวอร์! สาขาเราเน้นการเรียนรู้ระบบปฏิบัติการ Linux, เครือข่ายคลาวด์, CI/CD และการบริหารทรัพยากรซอฟต์แวร์",
+          subjects: ["ระบบปฏิบัติการ", "การคำนวณแบบคลาวด์", "เครือข่ายคอมพิวเตอร์", "วิศวกรรมซอฟต์แวร์"]
+        },
+        pm: {
+          title: "📈 สาย Tech Product Manager & Entrepreneur",
+          salary: "💰 เงินเดือนเริ่มต้น: 30,000 - 70,000+ บาท/เดือน",
+          desc: "คุณมีทักษะความเป็นผู้นำและเข้าใจทั้งเทคโนโลยีและธุรกิจ! สาขาเราสอนกระบวนการวิเคราะห์และออกแบบระบบ, การบริหารโปรเจกต์ไอที และการสร้างโครงงานนวัตกรรมจริง",
+          subjects: ["การวิเคราะห์และออกแบบระบบ", "วิศวกรรมซอฟต์แวร์", "การบริหารโปรเจกต์ไอที", "การจดสิทธิบัตรและนวัตกรรม"]
+        }
+      };
+
+      const info = tracksInfo[topTrack] || tracksInfo.dev;
+
       if (quizResultTitle && quizResultDesc && quizResultBox) {
-        quizResultTitle.textContent = title;
-        quizResultDesc.textContent = desc;
+        quizResultTitle.textContent = info.title;
+        if (quizSalaryBadge) quizSalaryBadge.textContent = info.salary;
+        quizResultDesc.textContent = info.desc;
+
+        if (quizSubjectsGrid && info.subjects) {
+          quizSubjectsGrid.innerHTML = info.subjects.map(s => `
+            <span class="badge bg-success-subtle text-success font-monospace px-2.5 py-1.5 small border border-success-subtle">${s}</span>
+          `).join('');
+        }
+
         quizResultBox.classList.remove('d-none');
+        quizResultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   }

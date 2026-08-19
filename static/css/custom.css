@@ -138,6 +138,74 @@ html, body {
   color: #f8fafc !important;
 }
 
+/* Dark Mode High-Contrast Overrides for Colored Components, Badges, Circles, and Buttons */
+[data-theme="dark"] .social-card .bg-white,
+[data-theme="dark"] .report-header-card .bg-white,
+[data-theme="dark"] .modal-header-banner .bg-white {
+  background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .social-card .btn-light,
+[data-theme="dark"] .report-header-card .btn-light {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"] .social-card .text-primary,
+[data-theme="dark"] .social-card .badge.text-primary,
+[data-theme="dark"] .social-card .btn-light.text-primary {
+  color: #1877f2 !important;
+}
+
+[data-theme="dark"] .social-card .text-success,
+[data-theme="dark"] .social-card .badge.text-success,
+[data-theme="dark"] .social-card .btn-light.text-success {
+  color: #05b04b !important;
+}
+
+[data-theme="dark"] .social-card .text-dark,
+[data-theme="dark"] .social-card .badge.text-dark,
+[data-theme="dark"] .social-card .btn-light.text-dark {
+  color: #1e293b !important;
+}
+
+[data-theme="dark"] .social-card .text-danger,
+[data-theme="dark"] .social-card .badge.text-danger,
+[data-theme="dark"] .social-card .btn-light.text-danger {
+  color: #e11d48 !important;
+}
+
+[data-theme="dark"] .report-header-card .badge.text-dark,
+[data-theme="dark"] .modal-header-banner .badge.text-dark {
+  color: #0f172a !important;
+}
+
+/* Floating Badges in Dark Mode */
+[data-theme="dark"] .floating-badge {
+  background: rgba(23, 5, 45, 0.94) !important;
+  border-color: rgba(247, 138, 219, 0.3) !important;
+}
+[data-theme="dark"] .floating-badge.badge-1 { color: #fb7185 !important; }
+[data-theme="dark"] .floating-badge.badge-2 { color: #e879f9 !important; }
+[data-theme="dark"] .floating-badge.badge-3 { color: #fbbf24 !important; }
+
+/* Ensure icons inside white circles retain proper colors in dark mode */
+[data-theme="dark"] .social-card .rounded-circle i.bi-facebook { color: #1877f2 !important; }
+[data-theme="dark"] .social-card .rounded-circle i.bi-line { color: #05b04b !important; }
+[data-theme="dark"] .social-card .rounded-circle i.bi-tiktok { color: #fe2c55 !important; }
+[data-theme="dark"] .social-card .rounded-circle i.bi-instagram { color: #e1306c !important; }
+
+/* Social Cards Gradient Background Preservation across Light/Dark Mode */
+.social-card-facebook, [data-theme="dark"] .social-card-facebook { background: linear-gradient(135deg, #1877f2 0%, #0d5bb5 100%) !important; }
+.social-card-line, [data-theme="dark"] .social-card-line { background: linear-gradient(135deg, #05b04b 0%, #008a38 100%) !important; }
+.social-card-tiktok, [data-theme="dark"] .social-card-tiktok { background: linear-gradient(135deg, #111111 0%, #222222 100%) !important; border: 1px solid rgba(254, 44, 85, 0.5) !important; }
+.social-card-instagram, [data-theme="dark"] .social-card-instagram { background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%) !important; }
+
+/* Translucent Glass & Border Utilities */
+.bg-white-10 { background-color: rgba(255, 255, 255, 0.14) !important; }
+.border-white-10 { border-color: rgba(255, 255, 255, 0.14) !important; }
+.border-white-20 { border-color: rgba(255, 255, 255, 0.28) !important; }
+
 /* Subtle Badges in Dark Mode */
 [data-theme="dark"] .bg-success-subtle {
   background-color: rgba(16, 185, 129, 0.25) !important;
@@ -206,7 +274,7 @@ html, body {
   border-color: rgba(247, 138, 219, 0.2) !important;
 }
 
-/* Global Font Hierarchy */
+/* Global Font Hierarchy & Typography Polish */
 *, body, button, input, select, textarea, table, .badge, .btn, .nav-link {
   font-family: var(--font-main) !important;
 }
@@ -217,6 +285,37 @@ body {
   line-height: 1.75;
   overflow-x: hidden;
   transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1, .h1, .display-1, .display-2, .display-3, .display-4 {
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.25 !important;
+}
+
+h2, .h2 {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.35 !important;
+}
+
+h3, .h3, h4, .h4 {
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.4 !important;
+}
+
+h5, .h5, h6, .h6 {
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+p, .lead {
+  letter-spacing: -0.005em;
+}
+
+.badge, .btn, .nav-link-custom {
+  letter-spacing: 0.01em;
 }
 
 /* Solid High-Contrast Text Accent Class */
@@ -401,14 +500,29 @@ body {
 }
 
 /* Typewriter / Dynamic Text Animation */
+.typewriter-wrapper {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.3em;
+  vertical-align: middle;
+}
+
+#typewriterText {
+  display: inline-block;
+  min-height: 1.2em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
 .typewriter-cursor {
   display: inline-block;
   width: 3px;
   height: 1.1em;
-  background-color: #e817a5;
+  background-color: var(--accent-color, #e817a5);
   margin-left: 4px;
   animation: blink 0.7s infinite alternate;
   vertical-align: middle;
+  flex-shrink: 0;
 }
 
 @keyframes blink {
