@@ -515,4 +515,7 @@ def index(request):
             },
         ]
     }
+    for lec in context["lecturers"]:
+        lec["courses_script_id"] = f"{lec['id']}_courses"
+
     return render(request, "index.html", context)
