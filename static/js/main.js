@@ -492,4 +492,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Randomize Quiz Options Listener
+  const randomQuizBtn = document.getElementById('randomQuizBtn');
+  if (randomQuizBtn && calcQuizBtn) {
+    randomQuizBtn.addEventListener('click', () => {
+      const q1El = document.getElementById('quizQ1');
+      const q2El = document.getElementById('quizQ2');
+      const q3El = document.getElementById('quizQ3');
+
+      [q1El, q2El, q3El].forEach(selectEl => {
+        if (selectEl && selectEl.options.length > 0) {
+          const randomIndex = Math.floor(Math.random() * selectEl.options.length);
+          selectEl.selectedIndex = randomIndex;
+        }
+      });
+
+      // Automatically trigger calculation
+      calcQuizBtn.click();
+    });
+  }
 });
