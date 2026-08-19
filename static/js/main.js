@@ -471,6 +471,30 @@ document.addEventListener('DOMContentLoaded', () => {
           salary: "💰 เงินเดือนเริ่มต้น: 30,000 - 70,000+ บาท/เดือน",
           desc: "คุณมีทักษะความเป็นผู้นำและเข้าใจทั้งเทคโนโลยีและธุรกิจ! สาขาเราสอนกระบวนการวิเคราะห์และออกแบบระบบ, การบริหารโปรเจกต์ไอที และการสร้างโครงงานนวัตกรรมจริง",
           subjects: ["การวิเคราะห์และออกแบบระบบ", "วิศวกรรมซอฟต์แวร์", "การบริหารโปรเจกต์ไอที", "การจดสิทธิบัตรและนวัตกรรม"]
+        },
+        mobile: {
+          title: "📱 สาย Mobile Application Developer (iOS & Android)",
+          salary: "💰 เงินเดือนเริ่มต้น: 28,000 - 65,000+ บาท/เดือน",
+          desc: "คุณรักความท้าทายในการพัฒนาแอปพลิเคชันสมาร์ตโฟน! สาขาวิชาฯ สอนโครงสร้างภาษาโปรแกรมมิ่ง, การเชื่อมต่อ REST APIs, การจัดการความปลอดภัยแอป และการพัฒนา Cross-Platform Apps",
+          subjects: ["การพัฒนาแอปมือถือ", "การปฏิสัมพันธ์ระหว่างมนุษย์และคอมพิวเตอร์", "การโปรแกรมเชิงวัตถุ", "การพัฒนาเว็บแอปพลิเคชัน"]
+        },
+        qa: {
+          title: "🔍 สาย Software QA & Test Automation Engineer",
+          salary: "💰 เงินเดือนเริ่มต้น: 26,000 - 58,000+ บาท/เดือน",
+          desc: "คุณใส่ใจในรายละเอียดและความแม่นยำเพื่อซอฟต์แวร์ที่สมบูรณ์แบบ! สาขาเราสอนวิศวกรรมซอฟต์แวร์, การทดสอบระบบอัตโนมัติ, การตรวจสอบความปลอดภัย และการประเมินคุณภาพตามมาตรฐานสากล",
+          subjects: ["วิศวกรรมซอฟต์แวร์", "การวิเคราะห์และออกแบบระบบ", "การประกันคุณภาพซอฟต์แวร์", "การโปรแกรมคอมพิวเตอร์"]
+        },
+        blockchain: {
+          title: "🔗 สาย Blockchain & Web3 Engineer",
+          salary: "💰 เงินเดือนเริ่มต้น: 35,000 - 95,000+ บาท/เดือน",
+          desc: "คุณสนใจเทคโนโลยีไร้ตัวกลางและระบบการเงินในโลกอนาคต! สาขาเราปูพื้นฐานวิทยาการรหัสผ่าน (Cryptography), ระบบกระจายศูนย์, โครงสร้างข้อมูล และความปลอดภัยของเครือข่าย",
+          subjects: ["วิทยาการรหัสผ่านและความปลอดภัย", "ระบบกระจายศูนย์", "โครงสร้างข้อมูลและอัลกอริทึม", "การสื่อสารข้อมูลและเครือข่าย"]
+        },
+        embedded: {
+          title: "⚡ สาย IoT & Embedded Systems Engineer",
+          salary: "💰 เงินเดือนเริ่มต้น: 28,000 - 62,000+ บาท/เดือน",
+          desc: "คุณหลงใหลการรวมซอฟต์แวร์เข้ากับฮาร์ดแวร์และอุปกรณ์จริง! สาขาเราสอนสถาปัตยกรรมคอมพิวเตอร์, ระบบฝังตัว, เซนเซอร์ IoT และการสื่อสารฮาร์ดแวร์แบบ Real-time",
+          subjects: ["สถาปัตยกรรมคอมพิวเตอร์", "ระบบฝังตัวและไอโอที", "การสื่อสารข้อมูลและเครือข่าย", "ระบบปฏิบัติการ"]
         }
       };
 
@@ -487,29 +511,48 @@ document.addEventListener('DOMContentLoaded', () => {
           `).join('');
         }
 
-        quizResultBox.classList.remove('d-none');
+        // Trigger pop-in animation
+        quizResultBox.classList.remove('d-none', 'quiz-pop-animate');
+        void quizResultBox.offsetWidth;
+        quizResultBox.classList.add('quiz-pop-animate');
         quizResultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   }
 
-  // Randomize Quiz Options Listener
+  // Randomize Quiz Options Listener with Dynamic Slot-Machine Shuffle
   const randomQuizBtn = document.getElementById('randomQuizBtn');
   if (randomQuizBtn && calcQuizBtn) {
     randomQuizBtn.addEventListener('click', () => {
       const q1El = document.getElementById('quizQ1');
       const q2El = document.getElementById('quizQ2');
       const q3El = document.getElementById('quizQ3');
+      const selects = [q1El, q2El, q3El].filter(Boolean);
+      const diceIcon = document.getElementById('diceIcon') || randomQuizBtn.querySelector('i');
 
-      [q1El, q2El, q3El].forEach(selectEl => {
-        if (selectEl && selectEl.options.length > 0) {
-          const randomIndex = Math.floor(Math.random() * selectEl.options.length);
-          selectEl.selectedIndex = randomIndex;
+      // Spin dice icon
+      if (diceIcon) {
+        diceIcon.classList.remove('dice-spin');
+        void diceIcon.offsetWidth;
+        diceIcon.classList.add('dice-spin');
+      }
+
+      // Slot machine shuffle animation effect (3 rapid steps)
+      let shuffleCount = 0;
+      const maxShuffles = 4;
+      const shuffleInterval = setInterval(() => {
+        selects.forEach(selectEl => {
+          if (selectEl.options.length > 0) {
+            selectEl.selectedIndex = Math.floor(Math.random() * selectEl.options.length);
+          }
+        });
+        shuffleCount++;
+        if (shuffleCount >= maxShuffles) {
+          clearInterval(shuffleInterval);
+          // Automatically trigger calculation on final shuffle step
+          calcQuizBtn.click();
         }
-      });
-
-      // Automatically trigger calculation
-      calcQuizBtn.click();
+      }, 70);
     });
   }
 });

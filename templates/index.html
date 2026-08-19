@@ -478,9 +478,7 @@
                 <i class="bi bi-file-person me-1"></i> ดูประวัติและผลงานวิชาการ
               </button>
               {{ lec.education_history|json_script:lec.id }}
-              {% with course_id=lec.id|add:"_courses" %}
-              {{ lec.courses_taught|json_script:course_id }}
-              {% endwith %}
+              {{ lec.courses_taught|json_script:lec.courses_script_id }}
             </div>
           </div>
         </div>
@@ -584,22 +582,22 @@
         {% endfor %}
       </div>
 
-      <!-- Interactive Career Quiz & Tuition Estimator Cards (Equal-Height Stretch) -->
-      <div class="row align-items-stretch g-4">
+      <!-- Interactive Career Quiz & Tuition Estimator Cards -->
+      <div class="row g-4">
         <!-- CS Career Quiz (8 Comprehensive Tech Tracks) -->
-        <div class="col-12 col-lg-7 reveal-init d-flex flex-column">
-          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card h-100 d-flex flex-column justify-content-between">
+        <div class="col-12 reveal-init">
+          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card">
             <div>
               <h3 class="fw-bold text-body mb-2 h4 d-flex align-items-center">
                 <i class="bi bi-compass-fill text-accent me-2"></i>ค้นหาตัวตน: คุณเหมาะกับสายคอมพิวเตอร์ด้านไหน?
               </h3>
-              <p class="text-muted small mb-4">ตอบแบบทดสอบสั้น 3 ข้อเพื่อวิเคราะห์สายอาชีพเทคโนโลยีไอทีที่ตรงกับพรสวรรค์และความสนใจของคุณที่สุด (8 สายงานยอดนิยม)</p>
+              <p class="text-muted small mb-4">ตอบแบบทดสอบสั้น 3 ข้อเพื่อวิเคราะห์สายอาชีพเทคโนโลยีไอทีที่ตรงกับพรสวรรค์และความสนใจของคุณที่สุด (12 สายงานยอดนิยม)</p>
 
               <div id="quizContainer">
                 <div class="mb-3.5">
                   <label class="form-label fw-bold text-body mb-1.5"><i class="bi bi-lightbulb-fill text-accent me-1.5"></i>1. คุณชอบและมีความสุขกับอะไรมากที่สุดในการทำโปรเจกต์?</label>
                   <select class="form-select rounded-3 py-2.5" id="quizQ1">
-                    <option value="dev">💻 เขียนโปรแกรม สร้างเว็บไซต์ และพัฒนาแอปมือถือ</option>
+                    <option value="dev">💻 เขียนโปรแกรม สร้างเว็บไซต์ และพัฒนาแอปพลิเคชัน</option>
                     <option value="ai">🤖 สร้างระบบคิดอัตโนมัติ หุ่นยนต์ และโมเดล AI (AI/LLM)</option>
                     <option value="data">📊 วิเคราะห์ตัวเลข ค้นพบข้อมูลเชิงลึกใน Big Data</option>
                     <option value="sec">🛡️ ป้องกันแฮกเกอร์ ดูแลความปลอดภัยไซเบอร์และระบบเครือข่าย</option>
@@ -607,13 +605,17 @@
                     <option value="ux">🎨 ดีไซน์หน้าตาแอปพลิเคชัน (UI/UX) และจัดระเบียบการใช้งานเพื่อผู้ใช้</option>
                     <option value="devops">🚀 วางโครงสร้างระบบคลาวด์และเซิร์ฟเวอร์ (DevOps/SRE)</option>
                     <option value="pm">📈 บริหารโปรเจกต์ วางกลยุทธ์ไอทีและธุรกิจสตาร์ทอัพ</option>
+                    <option value="mobile">📱 สร้างแอปมือถือ iOS และ Android ที่มีผู้ใช้นับล้าน (Mobile App)</option>
+                    <option value="qa">🔍 ค้นหาบั๊ก ทดสอบความเสถียร และประกันคุณภาพซอฟต์แวร์ (QA/Tester)</option>
+                    <option value="blockchain">🔗 พัฒนาระบบกระจายศูนย์ (DeFi), Smart Contracts และบล็อกเชน (Web3)</option>
+                    <option value="embedded">⚡ เชื่อมต่อฮาร์ดแวร์ บอร์ดไมโครคอนโทรลเลอร์ หุ่นยนต์ และระบบ IoT</option>
                   </select>
                 </div>
 
                 <div class="mb-3.5">
                   <label class="form-label fw-bold text-body mb-1.5"><i class="bi bi-tools text-accent me-1.5"></i>2. เครื่องมือ เทคโนโลยี หรือภาษาที่คุณอยากลุยที่สุด?</label>
                   <select class="form-select rounded-3 py-2.5" id="quizQ2">
-                    <option value="dev">Python, JavaScript/TypeScript, Django, React, Flutter</option>
+                    <option value="dev">Python, JavaScript/TypeScript, Django, React, Web Stack</option>
                     <option value="ai">PyTorch, TensorFlow, OpenCV, LangChain, Python AI Stack</option>
                     <option value="data">SQL, Pandas, PowerBI, Tableau, Data Analytics Tools</option>
                     <option value="sec">Linux, Wireshark, Metasploit, Cisco Networks, Cloud Security</option>
@@ -621,6 +623,10 @@
                     <option value="ux">Figma, Adobe XD, CSS3/Sass, Tailwind, Wireframing</option>
                     <option value="devops">Docker, Kubernetes, AWS, Google Cloud, CI/CD</option>
                     <option value="pm">Agile/Scrum, JIRA, Trello, Product Strategy, Business Analysis</option>
+                    <option value="mobile">Flutter, React Native, Swift, Kotlin, Mobile Frameworks</option>
+                    <option value="qa">Selenium, Postman, Cypress, JMeter, Test Automation</option>
+                    <option value="blockchain">Solidity, Web3.js, Ethereum, Cryptography, Smart Contracts</option>
+                    <option value="embedded">C/C++, Arduino, Raspberry Pi, ESP32, Microcontrollers</option>
                   </select>
                 </div>
 
@@ -635,6 +641,10 @@
                     <option value="ux">เป็น UI/UX Designer สร้างประสบการณ์ดีเยี่ยมให้ผู้ใช้นับล้าน</option>
                     <option value="devops">เป็น Cloud Architect / DevOps Specialist ดูแลระบบคลาวด์ขนาดใหญ่</option>
                     <option value="pm">เป็น Product Owner / ผู้ก่อตั้ง Tech Startup สร้างธุรกิจของตัวเอง</option>
+                    <option value="mobile">เป็น Mobile Application Developer พัฒนาแอปสมาร์ตโฟนยอดนิยม</option>
+                    <option value="qa">เป็น Software QA / Automation Test Engineer ดูแลคุณภาพระบบซอฟต์แวร์</option>
+                    <option value="blockchain">เป็น Blockchain Developer / Web3 Engineer พัฒนาแพลตฟอร์มการเงินไร้ตัวกลาง</option>
+                    <option value="embedded">เป็น IoT & Embedded Systems Engineer พัฒนาอุปกรณ์อัจฉริยะและหุ่นยนต์</option>
                   </select>
                 </div>
               </div>
@@ -645,12 +655,12 @@
                 <button type="button" class="btn btn-accent rounded-pill px-4 py-3 fw-bold shadow-md flex-grow-1" id="calcQuizBtn">
                   <i class="bi bi-magic me-2"></i>วิเคราะห์สายงานและผลลัพธ์ของคุณ
                 </button>
-                <button type="button" class="btn btn-outline-accent rounded-pill px-3 py-3 fw-bold shadow-sm" id="randomQuizBtn" title="สุ่มเลือกคำตอบทั้ง 3 ข้อให้คุณ">
-                  <i class="bi bi-shuffle me-1.5"></i>สุ่มคำตอบ
+                <button type="button" class="btn btn-outline-accent rounded-pill px-4 py-3 fw-bold shadow-sm" id="randomQuizBtn" title="สุ่มเลือกคำตอบทั้ง 3 ข้อให้คุณ">
+                  <i class="bi bi-shuffle me-2" id="diceIcon"></i>สุ่มคำตอบ
                 </button>
               </div>
 
-              <!-- Quiz Result Box -->
+              <!-- Quiz Result Box with Pop-In Animation -->
               <div class="mt-4 p-4 rounded-4 bg-success-subtle border border-success-subtle d-none" id="quizResultBox">
                 <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
                   <span class="badge bg-success text-white rounded-pill px-3 py-1 font-monospace" style="font-size:0.82rem">ผลการวิเคราะห์สายงาน</span>
@@ -668,89 +678,49 @@
           </div>
         </div>
 
-        <!-- Admission Fee Estimator Summary -->
-        <div class="col-12 col-lg-5 reveal-init reveal-delay-2 d-flex flex-column">
-          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card h-100 d-flex flex-column justify-content-between" style="background: linear-gradient(135deg, rgba(217,70,239,0.08) 0%, rgba(245,158,11,0.05) 100%);">
-            <div>
-              <h3 class="fw-bold text-body mb-2 h4 d-flex align-items-center">
-                <i class="bi bi-calculator-fill text-accent me-2"></i>ประมาณการค่าใช้จ่ายการเรียน
-              </h3>
-              <p class="text-muted small mb-4">ค่าธรรมเนียมการศึกษาของ มรภ.ศรีสะเกษ เป็นมิตร ชัดเจน มีทุนการศึกษาและ กยศ. รองรับ</p>
-
-              <ul class="list-group list-group-flush mb-4 rounded-4 overflow-hidden shadow-sm border">
-                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                  <div>
-                    <span class="fw-bold text-body d-block"><i class="bi bi-star-fill text-accent me-1.5"></i>ปี 1 เทอมแรกเข้า (เทอม 1)</span>
-                    <small class="text-muted" style="font-size:0.8rem">รวมค่าแรกเข้าและขึ้นทะเบียน</small>
-                  </div>
-                  <strong class="text-accent font-monospace fs-6 text-nowrap ms-2">11,000 บาท</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                  <div>
-                    <span class="fw-bold text-body d-block"><i class="bi bi-calendar-check-fill text-primary me-1.5"></i>เทอมถัดไปทุกชั้นปี (เทอม 2 - ปี 4)</span>
-                    <small class="text-muted" style="font-size:0.8rem">ค่าธรรมเนียมการศึกษาปกติทุกเทอม</small>
-                  </div>
-                  <strong class="text-primary font-monospace fs-6 text-nowrap ms-2">9,000 บาท/เทอม</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center py-2.5">
-                  <span class="small"><i class="bi bi-hourglass-split text-accent me-1.5"></i>ระยะเวลาเรียนตลอดหลักสูตร</span>
-                  <strong class="text-body font-monospace small text-nowrap">4 ปี (8 ภาคเรียน)</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center py-2.5">
-                  <span class="small"><i class="bi bi-check-circle-fill text-success me-1.5"></i>สิทธิประโยชน์ กยศ.</span>
-                  <span class="badge bg-success text-white">กู้เรียนได้ 100%</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <a href="{{ contact_info.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent rounded-pill py-3 text-center fw-bold shadow-md w-100">
-                <i class="bi bi-mortarboard-fill me-2"></i>ตรวจสอบโควตาและสมัครเลย
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dedicated Year-by-Year Tuition & Loan Breakdown Grid -->
-        <div class="col-12 mt-4 reveal-init">
-          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 text-white overflow-hidden position-relative" style="background: linear-gradient(135deg, #1f0438 0%, #3b0764 50%, #701a75 100%); border: 1px solid rgba(247, 138, 219, 0.28);">
+        <!-- Year-by-Year Tuition Fee Breakdown Grid (Harmonious & Sleek Design) -->
+        <div class="col-12 mt-2 reveal-init">
+          <div class="card border-0 rounded-5 shadow-sm p-4 p-md-5 glass-card shimmer-card">
             
             <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4 gap-3">
               <div>
                 <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                  <span class="badge rounded-pill bg-white px-3 py-1.5 fw-bold shadow-sm" style="color:#6b04b6 !important; background-color:#ffffff !important;">
-                    <i class="bi bi-cash-coin me-1.5 text-accent"></i>ตารางค่าใช้จ่ายแบบละเอียด
+                  <span class="badge rounded-pill bg-accent-subtle text-accent border border-accent px-3 py-1.5 fw-bold shadow-sm">
+                    <i class="bi bi-cash-coin me-1.5"></i>ประมาณการค่าใช้จ่ายการศึกษา
                   </span>
-                  <span class="badge bg-white-10 text-white border border-white-20 rounded-pill px-3 py-1.5 small font-monospace">หลักสูตร วท.บ. (4 ปี)</span>
+                  <span class="badge bg-body-tertiary text-body border px-3 py-1.5 small font-monospace">หลักสูตร วท.บ. (4 ปี)</span>
                 </div>
-                <h3 class="fw-bold text-white mb-0 h4">ตารางค่าธรรมเนียมการศึกษาจำแนกตามชั้นปี (ปี 1 - ปี 4)</h3>
+                <h3 class="fw-bold text-body mb-0 h4">ตารางค่าธรรมเนียมการศึกษาจำแนกตามชั้นปี (ปี 1 - ปี 4)</h3>
               </div>
               
-              <div class="badge bg-success text-white px-3.5 py-2.5 rounded-pill fs-6 fw-bold shadow-sm d-inline-flex align-items-center" style="background-color: #10b981 !important;">
-                <i class="bi bi-shield-check me-2 fs-5 text-white"></i>สิทธิประโยชน์: กู้เรียน กยศ. ได้ 100% ทุกชั้นปี
+              <div class="badge bg-success-subtle text-success border border-success-subtle px-3.5 py-2.5 rounded-pill fs-6 fw-bold shadow-sm d-inline-flex align-items-center">
+                <i class="bi bi-shield-check me-2 fs-5 text-success"></i>สิทธิประโยชน์: กู้เรียน กยศ. ได้ 100% ทุกชั้นปี
               </div>
             </div>
 
             <!-- 4 Year Cards Grid -->
-            <div class="row g-3">
+            <div class="row g-3 mb-4">
               <!-- Year 1 -->
               <div class="col-12 col-sm-6 col-lg-3">
-                <div class="p-3.5 rounded-4 h-100 text-white d-flex flex-column justify-content-between" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <div class="p-4 rounded-4 h-100 bg-body-tertiary border shadow-sm d-flex flex-column justify-content-between">
                   <div>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <span class="fw-bold text-warning font-monospace" style="font-size: 1.1rem;"><i class="bi bi-mortarboard-fill me-1"></i>ชั้นปีที่ 1</span>
-                      <span class="badge bg-warning text-dark fw-bold rounded-pill px-2.5 py-1">แรกเข้า</span>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-mortarboard-fill fs-5 text-accent"></i>
+                        <span class="fw-bold text-accent font-monospace fs-6">ชั้นปีที่ 1</span>
+                      </div>
+                      <span class="badge bg-accent text-white fw-bold rounded-pill px-2.5 py-1 small">แรกเข้า</span>
                     </div>
-                    <p class="small text-white-50 mb-3" style="font-size:0.82rem">ปรับพื้นฐานระบบและขึ้นทะเบียนนักศึกษาใหม่</p>
+                    <p class="small text-muted mb-3" style="font-size:0.85rem; line-height:1.5;">ปรับพื้นฐานระบบและขึ้นทะเบียนนักศึกษาใหม่</p>
                   </div>
-                  <div class="border-top border-white-10 pt-2.5">
-                    <div class="d-flex justify-content-between align-items-center small mb-1.5 text-white-50">
-                      <span>เทอม 1 (แรกเข้า):</span>
-                      <strong class="text-warning font-monospace fs-6">11,000 บาท</strong>
+                  <div class="border-top pt-3">
+                    <div class="d-flex justify-content-between align-items-center small mb-2">
+                      <span class="text-muted">เทอม 1 (แรกเข้า):</span>
+                      <strong class="text-accent font-monospace fs-6">12,280 บาท</strong>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center small text-white-50">
-                      <span>เทอม 2:</span>
-                      <strong class="text-white font-monospace fs-6">9,000 บาท</strong>
+                    <div class="d-flex justify-content-between align-items-center small">
+                      <span class="text-muted">เทอม 2:</span>
+                      <strong class="text-body font-monospace fs-6">9,000 บาท</strong>
                     </div>
                   </div>
                 </div>
@@ -758,22 +728,25 @@
 
               <!-- Year 2 -->
               <div class="col-12 col-sm-6 col-lg-3">
-                <div class="p-3.5 rounded-4 h-100 text-white d-flex flex-column justify-content-between" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <div class="p-4 rounded-4 h-100 bg-body-tertiary border shadow-sm d-flex flex-column justify-content-between">
                   <div>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <span class="fw-bold text-info font-monospace" style="font-size: 1.1rem;"><i class="bi bi-laptop me-1"></i>ชั้นปีที่ 2</span>
-                      <span class="badge bg-white-10 text-white rounded-pill px-2.5 py-1 small">คงที่</span>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-laptop fs-5 text-primary"></i>
+                        <span class="fw-bold text-primary font-monospace fs-6">ชั้นปีที่ 2</span>
+                      </div>
+                      <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1 small">คงที่</span>
                     </div>
-                    <p class="small text-white-50 mb-3" style="font-size:0.82rem">ลงมือเขียนโปรแกรมและแล็บปฏิบัติการจริง</p>
+                    <p class="small text-muted mb-3" style="font-size:0.85rem; line-height:1.5;">ลงมือเขียนโปรแกรมและแล็บปฏิบัติการจริง</p>
                   </div>
-                  <div class="border-top border-white-10 pt-2.5">
-                    <div class="d-flex justify-content-between align-items-center small mb-1.5 text-white-50">
-                      <span>เทอม 1:</span>
-                      <strong class="text-info font-monospace fs-6">9,000 บาท</strong>
+                  <div class="border-top pt-3">
+                    <div class="d-flex justify-content-between align-items-center small mb-2">
+                      <span class="text-muted">เทอม 1:</span>
+                      <strong class="text-primary font-monospace fs-6">9,000 บาท</strong>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center small text-white-50">
-                      <span>เทอม 2:</span>
-                      <strong class="text-info font-monospace fs-6">9,000 บาท</strong>
+                    <div class="d-flex justify-content-between align-items-center small">
+                      <span class="text-muted">เทอม 2:</span>
+                      <strong class="text-primary font-monospace fs-6">9,000 บาท</strong>
                     </div>
                   </div>
                 </div>
@@ -781,22 +754,25 @@
 
               <!-- Year 3 -->
               <div class="col-12 col-sm-6 col-lg-3">
-                <div class="p-3.5 rounded-4 h-100 text-white d-flex flex-column justify-content-between" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <div class="p-4 rounded-4 h-100 bg-body-tertiary border shadow-sm d-flex flex-column justify-content-between">
                   <div>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <span class="fw-bold text-info font-monospace" style="font-size: 1.1rem;"><i class="bi bi-code-slash me-1"></i>ชั้นปีที่ 3</span>
-                      <span class="badge bg-white-10 text-white rounded-pill px-2.5 py-1 small">คงที่</span>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-code-slash fs-5 text-primary"></i>
+                        <span class="fw-bold text-primary font-monospace fs-6">ชั้นปีที่ 3</span>
+                      </div>
+                      <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1 small">คงที่</span>
                     </div>
-                    <p class="small text-white-50 mb-3" style="font-size:0.82rem">วิชาเฉพาะทาง AI, Data & Cybersecurity</p>
+                    <p class="small text-muted mb-3" style="font-size:0.85rem; line-height:1.5;">วิชาเฉพาะทาง AI, Data & Cybersecurity</p>
                   </div>
-                  <div class="border-top border-white-10 pt-2.5">
-                    <div class="d-flex justify-content-between align-items-center small mb-1.5 text-white-50">
-                      <span>เทอม 1:</span>
-                      <strong class="text-info font-monospace fs-6">9,000 บาท</strong>
+                  <div class="border-top pt-3">
+                    <div class="d-flex justify-content-between align-items-center small mb-2">
+                      <span class="text-muted">เทอม 1:</span>
+                      <strong class="text-primary font-monospace fs-6">9,000 บาท</strong>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center small text-white-50">
-                      <span>เทอม 2:</span>
-                      <strong class="text-info font-monospace fs-6">9,000 บาท</strong>
+                    <div class="d-flex justify-content-between align-items-center small">
+                      <span class="text-muted">เทอม 2:</span>
+                      <strong class="text-primary font-monospace fs-6">9,000 บาท</strong>
                     </div>
                   </div>
                 </div>
@@ -804,26 +780,40 @@
 
               <!-- Year 4 -->
               <div class="col-12 col-sm-6 col-lg-3">
-                <div class="p-3.5 rounded-4 h-100 text-white d-flex flex-column justify-content-between" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <div class="p-4 rounded-4 h-100 bg-body-tertiary border shadow-sm d-flex flex-column justify-content-between">
                   <div>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <span class="fw-bold text-success font-monospace" style="font-size: 1.1rem;"><i class="bi bi-award-fill me-1"></i>ชั้นปีที่ 4</span>
-                      <span class="badge bg-success text-white rounded-pill px-2.5 py-1 small">จบการศึกษา</span>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-award-fill fs-5 text-success"></i>
+                        <span class="fw-bold text-success font-monospace fs-6">ชั้นปีที่ 4</span>
+                      </div>
+                      <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2.5 py-1 small">จบการศึกษา</span>
                     </div>
-                    <p class="small text-white-50 mb-3" style="font-size:0.82rem">สหกิจศึกษาบริษัทไอทีชั้นนำ & โครงงานวิจัย</p>
+                    <p class="small text-muted mb-3" style="font-size:0.85rem; line-height:1.5;">สหกิจศึกษาบริษัทไอทีชั้นนำ & โครงงานวิจัย</p>
                   </div>
-                  <div class="border-top border-white-10 pt-2.5">
-                    <div class="d-flex justify-content-between align-items-center small mb-1.5 text-white-50">
-                      <span>เทอม 1:</span>
+                  <div class="border-top pt-3">
+                    <div class="d-flex justify-content-between align-items-center small mb-2">
+                      <span class="text-muted">เทอม 1:</span>
                       <strong class="text-success font-monospace fs-6">9,000 บาท</strong>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center small text-white-50">
-                      <span>เทอม 2:</span>
+                    <div class="d-flex justify-content-between align-items-center small">
+                      <span class="text-muted">เทอม 2:</span>
                       <strong class="text-success font-monospace fs-6">9,000 บาท</strong>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- Bottom Action Row (Right-Aligned Button & Informational Note) -->
+            <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between pt-3 border-top gap-3">
+              <div class="text-muted small d-flex align-items-center">
+                <i class="bi bi-info-circle-fill text-accent me-2 fs-5"></i>
+                <span>ค่าธรรมเนียมการศึกษารวมค่าบำรุงมหาวิทยาลัยและอุปกรณ์การเรียนตลอดภาคการศึกษา</span>
+              </div>
+              <a href="{{ contact_info.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent rounded-pill px-4 py-2.5 fw-bold shadow-md text-nowrap ms-sm-auto">
+                <i class="bi bi-mortarboard-fill me-2"></i>ตรวจสอบโควตาและสมัครเข้าศึกษาต่อ <i class="bi bi-arrow-right ms-1"></i>
+              </a>
             </div>
           </div>
         </div>
