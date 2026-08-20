@@ -160,6 +160,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal-init').forEach(el => revealObserver.observe(el));
 
+  // Career Roadmap Carousel Slide Progress Meter Observer
+  const careerCarousel = document.getElementById('careerRoadmapCarousel');
+  if (careerCarousel) {
+    careerCarousel.addEventListener('slid.bs.carousel', function (e) {
+      const activeFills = e.relatedTarget.querySelectorAll('.progress-skill-fill');
+      activeFills.forEach(fill => {
+        const targetPct = fill.getAttribute('data-progress');
+        fill.style.width = `${targetPct}%`;
+      });
+    });
+  }
+
   // 6. Hero Counter Animation
   const counters = document.querySelectorAll('.counter-value');
   let animatedCounters = false;
