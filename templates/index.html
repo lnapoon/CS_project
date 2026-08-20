@@ -40,11 +40,13 @@
   <div class="mobile-drawer d-lg-none" id="mobileDrawer">
     <div class="mobile-drawer-inner p-4">
       <div class="d-flex align-items-center justify-content-between mb-4">
-        <div class="d-flex align-items-center gap-2.5">
-          <img src="{% static 'images/logo.png' %}" alt="Logo" width="36" height="36" class="rounded-circle" />
-          <span class="fw-bold text-body">วิทยาการคอมพิวเตอร์ SSKRU</span>
+        <div class="d-flex align-items-center gap-3">
+          <img src="{% static 'images/logo.png' %}" alt="Logo" width="36" height="36" class="rounded-circle me-1" />
+          <span class="fw-bold text-body">COMSCI SSKRU</span>
         </div>
-        <button class="btn-close text-reset" id="mobileDrawerClose" aria-label="Close menu"></button>
+        <button type="button" class="btn p-1.5 rounded-circle border-0 text-body hover-rotate" id="mobileDrawerClose" aria-label="Close menu">
+          <i class="bi bi-x-lg fs-4"></i>
+        </button>
       </div>
       <ul class="list-unstyled d-flex flex-column gap-2 mb-4">
         <li><a href="#hero" class="mobile-nav-link active"><i class="bi bi-house-door-fill me-2"></i>หน้าแรก</a></li>
@@ -148,7 +150,7 @@
                 <i class="bi bi-award-fill me-1"></i> ข้อมูลรายละเอียดหลักสูตรเชิงกลยุทธ์
               </span>
               <h2 class="fw-bold text-body" style="font-size:2rem">โครงสร้างเชิงเป้าหมาย & ผลลัพธ์การเรียนรู้</h2>
-              <p class="text-muted mx-auto mb-0" style="max-width:650px;font-size:1.08rem;line-height:1.7">
+              <p class="text-muted mx-auto mb-0" style="max-width:780px;font-size:1.08rem;line-height:1.7;text-wrap:balance">
                 ผสานทิศทางเพื่อสร้างผลลัพธ์การเรียนรู้เชิงทักษะและคุณธรรมจริยธรรมที่สอดคล้องกับมาตรฐานระดับประเทศ
               </p>
             </div>
@@ -293,7 +295,7 @@
       <div class="text-center mb-4 reveal-init">
         <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"><i class="bi bi-journal-code me-1"></i> วิชาเรียนเข้มข้น ตอบโจทย์ตลาดงาน</span>
         <h2 class="fw-bold text-body mb-2">โครงสร้างหลักสูตรและวิชาเรียน</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           ข้อมูลรายละเอียดวิชาเรียนในสาขาวิชาฯ เพื่อปูทางให้เกิดทักษะความชำนาญเฉพาะด้านตามความต้องการของตลาดไอที
         </p>
       </div>
@@ -366,7 +368,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">แผนการศึกษาและตารางวิชาเรียน</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           ตัวอย่างตารางวิชาหลักในการเรียนในแต่ละชั้นปีการศึกษา (หน่วยกิตรวมไม่น้อยกว่า 133 หน่วยกิต)
         </p>
       </div>
@@ -427,7 +429,7 @@
       <div class="text-center mb-5 reveal-init">
         <div class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 fw-semibold mb-3"><i class="bi bi-person-badge-fill me-1"></i> คณาจารย์ผู้ทรงคุณวุฒิและเชี่ยวชาญเฉพาะทาง</div>
         <h2 class="fw-bold text-body mb-2">อาจารย์ประจำหลักสูตร</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           คณาจารย์ผู้รับผิดชอบหลักสูตรและคณาจารย์ประจำสาขาวิชา ร่วมขับเคลื่อนการจัดการเรียนการสอนและนวัตกรรมใหม่
         </p>
       </div>
@@ -493,40 +495,47 @@
       <div class="text-center mb-5 reveal-init">
         <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"><i class="bi bi-star-fill me-1"></i> ผลงานและกิจกรรมโดดเด่น</span>
         <h2 class="fw-bold text-body mb-2">นวัตกรรมและกิจกรรมนักศึกษา</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           สัมผัสบรรยากาศการเรียนและผลงานนวัตกรรมเด่นของนักศึกษาสาขาวิชาวิทยาการคอมพิวเตอร์
         </p>
       </div>
 
-      <!-- Bootstrap Carousel Component -->
-      <div id="showcaseCarousel" class="carousel slide rounded-5 shadow-lg overflow-hidden glass-card shimmer-card reveal-init" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          {% for sc in showcases %}
-          <button type="button" data-bs-target="#showcaseCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
-          {% endfor %}
-        </div>
-        <div class="carousel-inner">
-          {% for sc in showcases %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %} p-5 text-center" style="min-height:300px; background: linear-gradient(135deg, rgba(217,70,239,0.08) 0%, rgba(225,29,72,0.05) 100%);">
-            <div class="d-flex justify-content-center mb-3">
-              <div class="rounded-circle d-flex align-items-center justify-content-center text-white shadow-md" style="width:64px;height:64px; background: var(--gradient-primary);">
-                <i class="bi {{ sc.icon }} fs-2"></i>
+      <!-- Showcases & Activities Cards Grid (2x2 Layout) -->
+      <div class="row g-4">
+        {% for sc in showcases %}
+        <div class="col-12 col-md-6 reveal-init">
+          <div class="card h-100 shadow-sm border-0 rounded-4 glass-card p-4 hover-elevate d-flex flex-column border-top border-4" style="border-top-color: {{ sc.color }} !important;">
+            
+            <!-- Top Header: Icon + Badges + Title -->
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <div class="rounded-3 d-flex align-items-center justify-content-center text-white shadow-sm flex-shrink-0" style="width: 50px; height: 50px; background-color: {{ sc.color }};">
+                <i class="bi {{ sc.icon }} fs-4"></i>
+              </div>
+              <div class="flex-grow-1 min-w-0">
+                <div class="d-flex flex-wrap gap-1.5 mb-1.5 align-items-center">
+                  <span class="badge rounded-pill bg-accent-subtle text-accent px-2.5 py-1 fw-semibold" style="font-size: 0.78rem;">{{ sc.badge }}</span>
+                  {% if sc.date %}<span class="badge bg-body-tertiary text-body border px-2.5 py-1 font-monospace" style="font-size: 0.75rem;">{{ sc.date }}</span>{% endif %}
+                </div>
+                <h3 class="fw-bold text-body mb-0 h6" style="font-size: 1.12rem; line-height: 1.45;">{{ sc.title }}</h3>
               </div>
             </div>
-            <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-1 font-monospace mb-2">{{ sc.badge }}</span>
-            <h3 class="fw-bold text-body mb-2 h4">{{ sc.title }}</h3>
-            <p class="text-muted mx-auto mb-0" style="max-width:650px; font-size:1.08rem; line-height:1.7">{{ sc.desc }}</p>
+
+            <!-- Description -->
+            <p class="text-muted small mb-4" style="line-height: 1.65; font-size: 0.92rem;">{{ sc.desc }}</p>
+
+            <!-- Reference Link Button -->
+            {% if sc.ref_url %}
+            <div class="mt-auto pt-2">
+              <a href="{{ sc.ref_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-accent rounded-pill px-3 py-2 fw-semibold shadow-sm w-100 text-center d-flex align-items-center justify-content-center gap-1.5">
+                <i class="bi bi-box-arrow-up-right"></i>
+                <span>ดูรายละเอียด / แหล่งอ้างอิงจริง ({% if sc.ref_label %}{{ sc.ref_label }}{% else %}Facebook สาขาฯ{% endif %})</span>
+              </a>
+            </div>
+            {% endif %}
+
           </div>
-          {% endfor %}
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#showcaseCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#showcaseCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -537,7 +546,7 @@
       <div class="text-center mb-5 reveal-init">
         <span class="badge rounded-pill bg-accent-subtle text-accent px-3 py-2 mb-2 fw-semibold"><i class="bi bi-rocket-takeoff-fill me-1"></i> วางแผนอนาคตไอทีระดับมืออาชีพ</span>
         <h2 class="fw-bold text-body mb-2">เส้นทางอาชีพและประมาณการเงินเดือน (Career Roadmap)</h2>
-        <p class="text-muted mx-auto" style="max-width:780px">
+        <p class="text-muted mx-auto" style="max-width:820px;text-wrap:balance">
           บัณฑิตสาขาวิชาวิทยาการคอมพิวเตอร์ มรภ.ศรีสะเกษ พร้อมก้าวสู่อุตสาหกรรมเทคโนโลยีด้วยทักษะรอบด้าน
         </p>
       </div>
@@ -728,17 +737,26 @@
               </div>
 
               <!-- Quiz Result Box with Pop-In Animation -->
-              <div class="mt-4 p-4 rounded-4 bg-success-subtle border border-success-subtle d-none" id="quizResultBox">
-                <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                  <span class="badge bg-success text-white rounded-pill px-3 py-1 font-monospace" style="font-size:0.82rem">ผลการวิเคราะห์สายงาน</span>
-                  <span class="badge bg-white text-success rounded-pill px-3 py-1 font-monospace shadow-sm" id="quizSalaryBadge" style="font-size:0.82rem"></span>
+              <div class="mt-4 p-4 rounded-4 bg-success-subtle border border-success-subtle d-none position-relative" id="quizResultBox">
+                <div class="d-flex align-items-center justify-content-between gap-2 mb-2 flex-wrap">
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="badge bg-success text-white rounded-pill px-3 py-1 font-monospace" style="font-size:0.82rem">ผลการวิเคราะห์สายงาน</span>
+                    <span class="badge bg-white text-success rounded-pill px-3 py-1 font-monospace shadow-sm" id="quizSalaryBadge" style="font-size:0.82rem"></span>
+                  </div>
+                  <button type="button" class="btn-close" id="closeQuizResultBtn" aria-label="ปิดผลการวิเคราะห์" title="ปิดผลลัพธ์"></button>
                 </div>
                 <h4 class="fw-bold text-success mb-2 h5" id="quizResultTitle"></h4>
                 <p class="mb-3 text-body small" id="quizResultDesc" style="line-height:1.65"></p>
                 
-                <div class="p-3 rounded-3 bg-white shadow-sm border border-success-subtle">
+                <div class="p-3 rounded-3 bg-white shadow-sm border border-success-subtle mb-3">
                   <small class="fw-bold text-dark d-block mb-2"><i class="bi bi-journal-bookmark-fill me-1.5 text-success"></i>รายวิชาเด่นในหลักสูตร SSKRU CS ที่จะปูทางสายนี้:</small>
                   <div class="d-flex flex-wrap gap-1.5" id="quizSubjectsGrid"></div>
+                </div>
+
+                <div class="text-end">
+                  <button type="button" class="btn btn-sm btn-outline-success rounded-pill px-3 py-1.5 small fw-semibold" id="dismissQuizResultBtn">
+                    <i class="bi bi-x-circle me-1"></i>ปิดข้อความผลลัพธ์
+                  </button>
                 </div>
               </div>
             </div>
@@ -893,7 +911,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">ดาวน์โหลดเอกสารสาขาวิชาฯ</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           รวบรวมเอกสารวิชาการ เอกสารแผนประชาสัมพันธ์แนะนำการขึ้นทะเบียน และข้อมูลสำคัญต่าง ๆ เพื่อสนับสนุนนักศึกษา
         </p>
       </div>
@@ -930,7 +948,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">รายงานความสำเร็จและคุณภาพหลักสูตร</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           เอกสารสรุปผลการประเมินคุณภาพการศึกษาระดับหลักสูตรตามมาตรฐานและการสร้างคุณค่าระดับสากล
         </p>
       </div>
@@ -970,7 +988,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal-init">
         <h2 class="fw-bold text-body mb-2">ช่องทางการติดต่อเรา</h2>
-        <p class="text-muted mx-auto" style="max-width:600px">
+        <p class="text-muted mx-auto" style="max-width:780px;text-wrap:balance">
           มีข้อสงสัยเกี่ยวกับหลักสูตร โควตาการรับสมัคร หรือสอบถามรายละเอียดเพิ่มเติม ได้ตลอดเวลา
         </p>
       </div>

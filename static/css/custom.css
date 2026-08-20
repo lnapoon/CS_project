@@ -748,18 +748,31 @@ p, .lead {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
 }
 
-.btn-close:hover {
+.btn-close:hover,
+.hover-rotate:hover {
   opacity: 1 !important;
   transform: rotate(90deg) scale(1.15) !important; /* Smooth 90deg rotation on hover! */
+}
+
+.hover-rotate {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
 }
 
 /* Ensure Close (X) button is NEVER invisible in Dark Mode across modals & drawers */
 [data-theme="dark"] .btn-close,
 [data-theme="dark"] .btn-close-white,
-.mobile-drawer .btn-close,
-.modal-header .btn-close {
+[data-theme="dark"] .mobile-drawer .btn-close,
+[data-theme="dark"] .modal-header .btn-close {
   filter: invert(1) grayscale(100%) brightness(200%) !important;
   opacity: 0.95 !important;
+}
+
+/* Light Mode Mobile Drawer Close Button Visibility */
+.mobile-drawer .btn-close {
+  filter: none;
+  opacity: 0.8;
+  padding: 0.5rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Lecturer Modal Close Button (X) Spacing & Hover Rotation */
@@ -794,3 +807,18 @@ p, .lead {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
+
+/* ==========================================================================
+   GLOBAL THAI TYPOGRAPHY & BALANCED WRAPPING
+   Prevents single trailing words (e.g. คอมพิวเตอร์) from dropping onto a new line alone
+   ========================================================================== */
+section .text-muted.mx-auto,
+section .lead,
+.section-subtitle,
+.hero-subtitle,
+.card-title,
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  word-break: break-word;
+}
+

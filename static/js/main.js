@@ -532,6 +532,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Quiz Result Close & Dismiss Button Listeners
+  const closeQuizResultBtn = document.getElementById('closeQuizResultBtn');
+  const dismissQuizResultBtn = document.getElementById('dismissQuizResultBtn');
+  const hideQuizResult = () => {
+    if (quizResultBox) {
+      quizResultBox.classList.add('d-none');
+    }
+  };
+  if (closeQuizResultBtn) closeQuizResultBtn.addEventListener('click', hideQuizResult);
+  if (dismissQuizResultBtn) dismissQuizResultBtn.addEventListener('click', hideQuizResult);
+
   // Randomize Quiz Options Listener with Dynamic Slot-Machine Shuffle
   const randomQuizBtn = document.getElementById('randomQuizBtn');
   if (randomQuizBtn && calcQuizBtn) {
